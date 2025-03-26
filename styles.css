@@ -1,0 +1,158 @@
+:root {
+  --sunWidth: 360px;
+
+}
+
+
+
+body {
+  background: radial-gradient(#000000, #333333);
+  background: url(imgs/several_circles_marks.jpg);
+  background-size: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+
+main {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* .sun {
+  width: var(--sunWidth);
+  aspect-ratio: 1;
+  background: rgb(17, 23, 57);
+  border-radius: 50%;
+  box-shadow: 0 0 5px 10px white, 0 0 35px white;
+  position: absolute;
+  top: calc(50% - 265px);
+  left: calc(50% - 240px);
+} */
+
+
+/* color-mix(in srgb, #E91E63 50%, #03A9F4 50%) = color(srgb 0.462745 0.390196 0.672549) */
+
+[class^='planet'] {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: calc(50% - 180px) calc(50% + 180px);
+  /* transform-origin: calc(50%) calc(50%); */
+}
+
+
+.planet-01 {
+  width: 32px;
+  background: rgba(170, 147, 65);
+  top: calc(50% - 343px);
+  left: calc(50% - 355px);
+}
+.planet-02 {
+  width: 68px;
+  background: rgba(162, 87, 87);
+  top: calc(50% - 276px);
+  left: calc(50% - 350px);
+}
+.planet-03 {
+  width: 100px;
+  background: rgba(135, 99, 126);
+  box-shadow: 0 0 5px 5px rgb(155, 210, 255), 0 0 40px rgb(155, 210, 255);
+  top: calc(50% - 277px);
+  left: calc(50% - 30px);
+  z-index: -1;
+}
+.planet-04 {
+  width: 57px;
+  background: rgba(182, 153, 77);
+  top: calc(50% - 295px);
+  left: calc(50% + 155px);
+}
+.planet-05 {
+  width: 25px;
+  background: rgba(121, 20, 18);
+  top: calc(50% - 304px);
+  left: calc(50% + 303px);
+}
+.planet-06 {
+  width: 30px;
+  background: rgba(186, 101, 10);
+  box-shadow: 0 0 1px 2px rgba(247, 255, 155, 0.8);
+  /* 0 0 5px 5px rgb(247, 255, 155),  */
+  top: calc(50% - 237px);
+  left: calc(50% + 252px);
+}
+.planet-07 {
+  width: 135px;
+  background: rgba(24, 48, 43);
+  top: calc(50% - 215px);
+  left: calc(50% + 105px);
+  z-index: -1;
+}
+.planet-42 {
+  width: 27px;
+  background: rgb(0, 0, 0);
+  box-shadow: 0 0 15px rgba(44, 141, 252, 0.8);
+  top: calc(50% - 164px);
+  left: calc(50% + 161px);
+}
+.planet-09 {
+  width: 90px;
+  background: rgb(118, 106, 127);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0),
+  0 0 0 5px rgba(87, 151, 255, 0.75);
+  top: calc(50% + 26px);
+  left: calc(50% - 350px);
+}
+.planet-10 {
+  width: 30px;
+  background: rgb(0, 0, 0);
+  top: calc(50% + 38px);
+  left: calc(50% - 309px);
+}
+.planet-11 {
+  width: 62px;
+  background: rgba(142, 103, 25, 0.8);
+  top: calc(50% + 52px);
+  left: calc(50% - 239px);
+}
+.planet-12 {
+  width: 12px;
+  background: rgba(0, 0, 0);
+  box-shadow: 0 0 0 3px rgba(222, 162, 42, 0.8);
+  top: calc(50% - 12px);
+  left: calc(50% - 232px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+[class^='planet'] {
+  --t: 6315.79ms;
+  /* animation: orbit var(--t, 20s) linear infinite; */
+}
