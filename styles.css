@@ -18,18 +18,19 @@ main {
   position: relative;
   width: 100vw;
   height: 100vh;
+  border: 2px solid red;
 }
 
-/* .sun {
+.sun {
   width: var(--sunWidth);
   aspect-ratio: 1;
-  background: rgb(17, 23, 57);
+  background: rgb(17, 23, 57, 0.8);
   border-radius: 50%;
   box-shadow: 0 0 5px 10px white, 0 0 35px white;
   position: absolute;
   top: calc(50% - 265px);
   left: calc(50% - 240px);
-} */
+}
 
 
 /* color-mix(in srgb, #E91E63 50%, #03A9F4 50%) = color(srgb 0.462745 0.390196 0.672549) */
@@ -151,6 +152,7 @@ main {
   margin-top: -215px;
   margin-left: -330px;
   transform: rotate(90deg);
+  /* position: absolute; */
 }
 .planet-07:before {
   width: 135px;
@@ -160,17 +162,18 @@ main {
 .planet-07:after {
   position: absolute;
   content: "";
-  left: 50%;
-  top: 0px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
   width: 27px;
   margin-left: -13.5px;
   margin-top: -13.5px;
   background: rgb(0, 0, 0);
   box-shadow: 0 0 15px rgba(44, 141, 252, 0.8);
-  --t: 4ms;
-  animation: orbit var(--t, 20s) linear infinite;
-  /* margin-top: -50px; */
-  /* margin-left: -50px; */
+  --t: 4000ms;
+  /* animation: orbit var(--t, 20s) linear infinite; */
+  transform-origin: 100px 100px;
 }
 
 
