@@ -1,38 +1,38 @@
-:root {
-  --sunWidth: 360px;
-  --sun2Width: 360px;
-
-}
-
-
 
 body {
   background: radial-gradient(#000000, #333333);
-  background: url(imgs/several_circles_marks.jpg);
+  /* background: url(imgs/several_circles_marks.jpg); */
   background-size: 100%;
   margin: 0;
 }
 
 
 
-main {
+main section {
   position: relative;
   width: 100vw;
   height: 100vh;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 
-/* .sun {
+main section.solar_system-2 {
+  top: -100vh;
+  /* border: 2px solid blue; */
+}
+
+
+
+.sun {
   width: 360px;
   aspect-ratio: 1;
   background: rgba(17, 23, 57, 0.8);
   border-radius: 50%;
-  box-shadow: 0 0 5px 10px white, 0 0 35px white;
+  box-shadow: 0 0 5px 10px white, 0 0 20px 20px beige;
   position: absolute;
   top: calc(50% - 265px);
   left: calc(50% - 240px);
-} */
-/* .sun-2 {
+}
+.sun-2 {
   width: 150px;
   aspect-ratio: 1;
   background: rgba(127, 118, 138, 0.8);
@@ -40,7 +40,7 @@ main {
   position: absolute;
   top: calc(50% + 115px);
   left: calc(50% + 198px);
-} */
+}
 
 
 /* color-mix(in srgb, #E91E63 50%, #03A9F4 50%) = color(srgb 0.462745 0.390196 0.672549) */
@@ -55,6 +55,8 @@ main {
   top: 50%;
   left: 50%;
   /* animation: orbit var(--t, 40s) linear infinite; */
+  --x: calc(var(--t) * 10);
+  animation: orbit var(--x, 20s) linear infinite;
 }
 
 [class^='planet']:before {
@@ -75,6 +77,10 @@ main {
 
 
 
+
+
+
+/* solar system 1 */
 
 .planet-01 {
   --t: 6315.79ms;
@@ -568,6 +574,16 @@ main {
 
 
 
+.planet-43 {
+  --t: 3500ms;
+  width: 700px;
+  margin-top: -253px;
+  margin-left: -230px;
+}
+.planet-43:before {
+  width: 255px;
+  background: rgba(0, 0, 0, 0.8);
+}
 
 
 
@@ -575,15 +591,26 @@ main {
 
 
 
+
+
+
+
+
+
+
+
+
+
+/* solar system 2 */
 
 
 
 .planet-23 {
   --t: 4400ms;
-  width: 600px;
-  margin-top: -385px;
-  margin-left: -365px;
-  transform: rotate(150deg);
+  width: 300px;
+  margin-top: 4px;
+  margin-left: 40px;
+  transform: rotate(90deg);
 }
 .planet-23:before {
   width: 25px;
@@ -592,21 +619,128 @@ main {
 }
 
 
-/* 
+
 
 .planet-33 {
   --t: 6000ms;
-  width: 450px;
-  margin-top: -275px;
-  margin-left: -320px;
-  transform: rotate(225deg);
+  width: 300px;
+  margin-top: 130px;
+  margin-left: 162px;
 }
 .planet-33:before {
-  width: 35px;
-  background: rgba(165, 106, 17, 0.8);
-} */
+  width: 47px;
+  background: rgba(114, 88, 58, 0.8);
+}
 
 
+
+
+
+.planet-34 {
+  --t: 5500ms;
+  width: 300px;
+  margin-top: 148px;
+  margin-left: 214px;
+}
+.planet-34:before {
+  width: 38px;
+  background: rgba(92, 128, 158, 0.8);
+  box-shadow: 0 0 5px 7px rgba(255, 234, 117, 0.8);
+}
+
+
+
+
+.planet-35 {
+  --t: 7500ms;
+  width: 200px;
+  margin-top: 153px;
+  margin-left: 180px;
+  transform: rotate(45deg);
+}
+.planet-35:before {
+  width: 17px;
+  background: rgba(122, 14, 14, 0.8);
+}
+.planet-35:after {
+  width: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  --t: 4500ms;
+  position: absolute;
+  content: "";
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 16px;
+  top: -8px;
+  animation: orbit var(--t, 20s) linear infinite;
+  transform-origin: 0px 20px;
+  z-index: 9;
+}
+
+
+
+
+
+.planet-37 {
+  --t: 3800ms;
+  width: 200px;
+  margin-top: 87px;
+  margin-left: 130px;
+  transform: rotate(135deg);
+}
+.planet-37:before {
+  width: 21px;
+  background: rgba(116, 92, 29, 0.8);
+}
+
+
+
+
+
+.planet-38 {
+  --t: 5800ms;
+  width: 200px;
+  margin-top: 58px;
+  margin-left: 147px;
+  transform: rotate(225deg);
+}
+.planet-38:before {
+  width: 21px;
+  background: rgba(162, 132, 16, 0.8);
+}
+
+
+
+
+
+
+.planet-39 {
+  --t: 3900ms;
+  width: 200px;
+  margin-top: 113px;
+  margin-left: 127px;
+  transform: rotate(225deg);
+}
+.planet-39:before {
+  width: 30px;
+  background: rgba(107, 22, 21, 0.8);
+}
+
+
+
+
+
+.planet-40 {
+  --t: 3900ms;
+  width: 300px;
+  margin-top: 18px;
+  margin-left: 168px;
+  transform: rotate(225deg);
+}
+.planet-40:before {
+  width: 25px;
+  background: rgba(22, 48, 73, 0.8);
+}
 
 
 
