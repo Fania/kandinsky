@@ -1,5 +1,6 @@
 :root {
   --sunWidth: 360px;
+  --sun2Width: 360px;
 
 }
 
@@ -22,25 +23,38 @@ main {
 }
 
 /* .sun {
-  width: var(--sunWidth);
+  width: 360px;
   aspect-ratio: 1;
-  background: rgb(17, 23, 57, 0.8);
+  background: rgba(17, 23, 57, 0.8);
   border-radius: 50%;
   box-shadow: 0 0 5px 10px white, 0 0 35px white;
   position: absolute;
   top: calc(50% - 265px);
   left: calc(50% - 240px);
 } */
+/* .sun-2 {
+  width: 150px;
+  aspect-ratio: 1;
+  background: rgba(127, 118, 138, 0.8);
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% + 115px);
+  left: calc(50% + 198px);
+} */
 
 
 /* color-mix(in srgb, #E91E63 50%, #03A9F4 50%) = color(srgb 0.462745 0.390196 0.672549) */
+
+
+
+
 
 [class^='planet'] {
   aspect-ratio: 1;
   position: absolute;
   top: 50%;
   left: 50%;
-  /* animation: orbit var(--t, 20s) linear infinite; */
+  /* animation: orbit var(--t, 40s) linear infinite; */
 }
 
 [class^='planet']:before {
@@ -48,7 +62,17 @@ main {
   border-radius: 50%;
   content: "";
   position: absolute;
+  /* mix-blend-mode: difference; */
+  /* mix-blend-mode: multiply; */
+  /* mix-blend-mode: hue; */
+  /* mix-blend-mode: color; */
+  /* mix-blend-mode: luminosity; */
+  /* mix-blend-mode: overlay; */
+  /* mix-blend-mode: exclusion; */
+  /* mix-blend-mode: hard-light; */
 }
+
+
 
 
 
@@ -88,8 +112,8 @@ main {
 .planet-03:before {
   width: 90px;
   background: rgba(135, 99, 126, 0.8);
-  box-shadow: 0 0 5px 5px rgb(155, 210, 255), 
-              0 0 40px rgb(155, 210, 255);
+  box-shadow: 0 0 5px 5px rgba(155, 210, 255), 
+              0 0 40px rgba(155, 210, 255);
   z-index: -1;
 }
 
@@ -168,7 +192,7 @@ main {
   width: 27px;
   margin-left: -13.5px;
   margin-top: -13.5px;
-  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.8);
   box-shadow: 0 0 15px rgba(44, 141, 252, 0.8);
   --t: 4000ms;
   animation: orbit var(--t, 20s) linear infinite;
@@ -188,7 +212,7 @@ main {
 }
 .planet-09:before {
   width: 90px;
-  background: rgb(118, 106, 127, 0.8);
+  background: rgba(118, 106, 127, 0.8);
   box-shadow: 0 0 0 3px rgba(0, 0, 0),
               0 0 0 5px rgba(87, 151, 255, 0.75);
   z-index: -1;
@@ -202,7 +226,7 @@ main {
   left: 51px;
   top: 23px;
   width: 30px;
-  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.8);
   animation: orbit var(--t, 20s) linear infinite;
   transform-origin: -10px 30px;
 }
@@ -234,7 +258,7 @@ main {
 }
 .planet-12:before {
   width: 12px;
-  background: rgba(0, 0, 0);
+  background: rgba(0, 0, 0, 0.8);
   box-shadow: 0 0 0 3px rgba(222, 162, 42, 0.8);
 }
 
@@ -285,7 +309,7 @@ main {
 }
 .planet-15:after {
   width: 10px;
-  background: rgba(0, 0, 0);
+  background: rgba(0, 0, 0, 0.8);
   --t: 4000ms;
   position: absolute;
   content: "";
@@ -379,7 +403,7 @@ main {
 }
 .planet-20::after {
   width: 12px;
-  background: rgba(0, 0, 0);
+  background: rgba(0, 0, 0, 0.8);
   --t: 4500ms;
   position: absolute;
   content: "";
@@ -411,8 +435,151 @@ main {
 
 
 
-.planet-23 {
+
+
+.planet-25 {
+  --t: 6500ms;
+  width: 400px;
+  margin-top: -250px;
+  margin-left: -205px;
+  transform: rotate(-90deg);
+}
+.planet-25:before {
+  width: 65px;
+  background: rgba(110, 51, 24, 0.8);
+}
+
+
+
+
+
+.planet-26 {
+  --t: 3700ms;
+  width: 450px;
+  margin-top: -255px;
+  margin-left: -222px;
+  transform: rotate(-90deg);
+}
+.planet-26:before {
+  width: 65px;
+  background: rgba(88, 49, 24, 0.8);
+}
+
+
+
+
+.planet-27 {
+  --t: 5000ms;
+  width: 450px;
+  margin-top: -256px;
+  margin-left: -254px;
+  transform: rotate(-90deg);
+}
+.planet-27:before {
+  width: 65px;
+  background: rgba(124, 26, 23, 0.8);
+}
+
+
+
+
+
+.planet-28 {
+  --t: 5700ms;
+  width: 450px;
+  margin-top: -265px;
+  margin-left: -285px;
+  transform: rotate(-90deg);
+}
+.planet-28:before {
+  width: 65px;
+  background: rgba(185, 158, 45, 0.8);
+}
+
+
+
+
+
+.planet-29 {
+  --t: 6700ms;
+  width: 550px;
+  margin-top: -287px;
+  margin-left: -312px;
+  transform: rotate(-90deg);
+}
+.planet-29:before {
+  width: 23px;
+  background: rgba(161, 88, 95, 0.8);
+}
+
+
+
+
+
+
+.planet-30 {
+  --t: 4500ms;
+  width: 600px;
+  margin-top: -289px;
+  margin-left: -281px;
+  transform: rotate(-90deg);
+}
+.planet-30:before {
+  width: 45px;
+  background: rgba(27, 62, 106, 0.8);
+}
+
+
+
+
+
+
+.planet-31 {
   --t: 7000ms;
+  width: 600px;
+  margin-top: -275px;
+  margin-left: -320px;
+  transform: rotate(-90deg);
+}
+.planet-31:before {
+  width: 15px;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 2px 2px rgba(253, 242, 166, 0.8);
+}
+
+
+
+
+
+
+.planet-32 {
+  --t: 2500ms;
+  width: 450px;
+  margin-top: -280px;
+  margin-left: -227px;
+  transform: rotate(225deg);
+}
+.planet-32:before {
+  width: 35px;
+  background: rgba(165, 106, 17, 0.8);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.planet-23 {
+  --t: 4400ms;
   width: 600px;
   margin-top: -385px;
   margin-left: -365px;
@@ -425,21 +592,25 @@ main {
 }
 
 
+/* 
 
-
-
-
-.planet-25 {
-  --t: 7000ms;
-  width: 600px;
-  margin-top: -385px;
-  margin-left: -365px;
-  /* transform: rotate(150deg); */
+.planet-33 {
+  --t: 6000ms;
+  width: 450px;
+  margin-top: -275px;
+  margin-left: -320px;
+  transform: rotate(225deg);
 }
-.planet-25:before {
-  width: 25px;
-  background: rgba(110, 51, 24, 0.8);
-}
+.planet-33:before {
+  width: 35px;
+  background: rgba(165, 106, 17, 0.8);
+} */
+
+
+
+
+
+
 
 
 
