@@ -759,3 +759,13 @@ main section.solar_system-2 {
     transform: rotate(-360deg);
   }
 }
+
+
+
+
+/* no animations */
+/* [class^='planet'],
+[class^='planet']:before,
+[class^='planet']:after {
+  animation: none !important;
+} */
