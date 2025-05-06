@@ -11,7 +11,7 @@ body {
 
 *, *:after {
   animation: none !important;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 
@@ -268,10 +268,61 @@ main section div {
 }
 
 
+
+[class^='line-'] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 20px;
+  background: rgba(255, 0, 0, 1);
+}
+
 .line-01 {
-  width: 130px;
-  background: rgba(0, 0, 0, 1);
-  border: solid 2px rgba(0, 0, 0, 1);
-  margin-top: 40px;
-  margin-left: 45px;
+  width: 515px;
+  height: 3px;
+  margin-top: -160px;
+  margin-left: -230px;
+  transform: rotateZ(9deg);
+}
+.line-02 {
+  width: 610px;
+  height: 3px;
+  margin-top: 65px;
+  margin-left: -320px;
+  transform: rotateZ(11deg);
+}
+.line-03 {
+  width: 585px;
+  height: 3px;
+  margin-top: -5px;
+  margin-left: -315px;
+  transform: rotateZ(15deg);
+}
+.line-04 {
+  width: 587px;
+  height: 3px;
+  margin-top: 15px;
+  margin-left: -320px;
+  transform: rotateZ(16deg);
+}
+.line-05 {
+  width: 520px;
+  height: 3px;
+  margin-top: 110px;
+  margin-left: -275px;
+  transform: rotateZ(7deg);
+}
+.line-06 {
+  width: 475px;
+  height: 3px;
+  margin-top: 150px;
+  margin-left: -290px;
+  transform: rotateZ(28deg);
+}
+.line-07 {
+  width: 554px;
+  height: 3px;
+  margin-top: -90px;
+  margin-left: -225px;
+  transform: rotateZ(36deg);
 }
