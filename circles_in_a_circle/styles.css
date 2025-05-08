@@ -19,6 +19,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  isolation: isolate;
 }
 
 *, *:after {
@@ -66,8 +67,10 @@ main section div {
 
 
 
+
 .ring {
   width: 91rem;
+  /* background: rgb(0, 0, 0, 1); */
   box-shadow: inset 0 0 0 4rem rgba(0, 0, 0, 1);
   border-radius: 50%;
   aspect-ratio: 1;
@@ -80,31 +83,35 @@ main section div {
 
 
 
-.ray-01 {
+
+
+
+[class^='ray-'] {
+  aspect-ratio: 1;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 320px;
   height: 100%;
-  background: linear-gradient(to bottom, rgb(55,143,141) 60%, rgb(146,185,143) 100%);
-  clip-path: polygon(0 0,130px 0,100% 100%,0 100%);
-  margin-top: -50%;
-  margin-left: 82px;
-  transform: skew(40deg);
   z-index: -1;
+  /* animation: orbit var(--t, 40s) linear infinite; */
+  /* --x: calc(var(--t) * 10); */
+  /* animation: orbit var(--x, 20s) linear infinite; */
+}
+.ray-01 {
+  width: 43rem;
+  background: linear-gradient(to bottom, rgb(55, 143, 141) 60%, rgb(146, 185, 143) 100%);
+  clip-path: polygon(0 0, 16rem 0, 100% 100%, 0 100%);
+  margin-top: -50%;
+  margin-left: 9.5rem;
+  transform: skew(39.5deg);
 }
 .ray-02 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 310px;
-  height: 100%;
-  background: rgb(226,183,111);
-  clip-path: polygon(0 0,70px 0,100% 100%,0 100%);
-  margin-top: -50%;
-  margin-left: -140px;
-  transform: skew(-50deg);
-  z-index: -1;
+  width: 40rem;
+  background: rgb(226, 183, 111);
+  clip-path: polygon(0 0, 9rem 0, 100% 100%, 0 100%);
+  margin-top: -50rem;
+  margin-left: -19rem;
+  transform: skew(-50.5deg);
 }
 
 
