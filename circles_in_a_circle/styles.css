@@ -1,32 +1,60 @@
 :root {
   box-sizing: border-box;
+  color-scheme: only light;
+  font-size: 1vmin;
 }
 
 body {
   background: rgb(242, 237, 211);
-  background: url(imgs/circles-in-a-circle-1923.jpg);
+  background: black;
+  /* background: url(imgs/circles-in-a-circle-1923.jpg); */
   background-size: 100%;
   margin: 0;
+  height: 100vh;
+  max-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 *, *:after {
   animation: none !important;
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 
 
 main {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
   isolation: isolate;
+  width: 100vw;
+  max-width: 100vh;
+  height: auto;
+  border: 1px solid red;
+  aspect-ratio: 1;
+  overflow: hidden;
 }
 
-main section {
+main img {
+  object-fit: contain;
+  opacity: 0.3;
+}
+
+main img,
+main section,
+main .outer_ring {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  aspect-ratio: 1;
+  width: 100%;
+  height: auto;
   top: 0;
+  left: 0;
+  transform-style: preserve-3d;
 }
 main section,
 main section div {
@@ -35,6 +63,20 @@ main section div {
   /* mix-blend-mode: normal;      */
   mix-blend-mode: hard-light;
 }
+
+
+
+.ring {
+  width: 91rem;
+  box-shadow: inset 0 0 0 4rem rgba(0, 0, 0, 1);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  position: absolute;
+  top: calc(50% - 46.2rem);
+  left: calc(50% - 45.5rem);
+  z-index: 9;
+}
+
 
 
 
@@ -254,18 +296,6 @@ main section div {
   margin-left: 45px;
 }
 
-
-.ring {
-  width: 760px;
-  aspect-ratio: 1;
-  background: rgba(0, 0, 0, 0);
-  box-shadow: inset 0 0 0 35px rgba(0, 0, 0, 1);
-  border-radius: 50%;
-  position: absolute;
-  top: calc(50% - 380px);
-  left: calc(50% - 380px);
-  z-index: 9;
-}
 
 
 
