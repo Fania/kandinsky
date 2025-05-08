@@ -315,51 +315,51 @@ main section div {
 }
 
 .line-01 {
-  width: 515px;
-  height: 3px;
-  margin-top: -160px;
-  margin-left: -230px;
-  transform: rotateZ(9deg);
+  width: 62rem;
+  height: 0.3rem;
+  margin-top: -20rem;
+  margin-left: -28rem;
+  transform: rotateZ(9.5deg);
 }
 .line-02 {
-  width: 610px;
-  height: 3px;
-  margin-top: 65px;
-  margin-left: -320px;
-  transform: rotateZ(11deg);
+  width: 73.8rem;
+  height: 0.3rem;
+  margin-top: 7.5rem;
+  margin-left: -38.6rem;
+  transform: rotateZ(11.5deg);
 }
 .line-03 {
-  width: 585px;
-  height: 3px;
-  margin-top: -5px;
-  margin-left: -315px;
+  width: 69.5rem;
+  height: 0.4rem;
+  margin-top: -0.7rem;
+  margin-left: -37.4rem;
   transform: rotateZ(15deg);
 }
 .line-04 {
-  width: 587px;
-  height: 3px;
-  margin-top: 15px;
-  margin-left: -320px;
-  transform: rotateZ(16deg);
+  width: 70rem;
+  height: 0.4rem;
+  margin-top: 1.6rem;
+  margin-left: -38rem;
+  transform: rotateZ(15.7deg);
 }
 .line-05 {
-  width: 520px;
-  height: 3px;
-  margin-top: 110px;
-  margin-left: -275px;
+  width: 62rem;
+  height: 0.4rem;
+  margin-top: 13rem;
+  margin-left: -33rem;
   transform: rotateZ(7deg);
 }
 .line-06 {
-  width: 475px;
-  height: 3px;
-  margin-top: 150px;
-  margin-left: -290px;
-  transform: rotateZ(28deg);
+  width: 57.2rem;
+  height: 0.4rem;
+  margin-top: 17rem;
+  margin-left: -35rem;
+  transform: rotateZ(27.2deg);
 }
 .line-07 {
-  width: 554px;
-  height: 3px;
-  margin-top: -90px;
-  margin-left: -225px;
-  transform: rotateZ(36deg);
+  width: 66rem;
+  height: 0.4rem;
+  margin-top: -11rem;
+  margin-left: -27rem;
+  transform: rotateZ(36.3deg);
 }
