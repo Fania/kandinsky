@@ -131,176 +131,176 @@ main section div {
 
 
 .circle-01 {
-  width: 245px;
+  width: 29rem;
   background: rgba(63, 72, 49, 1);
-  margin-top: -90px;
-  margin-left: -145px;
+  margin-top: -10.7rem;
+  margin-left: -17rem;
 }
 .circle-02 {
-  width: 170px;
+  width: 20.7rem;
   background: rgba(224, 168, 171, 1);
-  border: solid 2px rgba(0, 0, 0, 1);
-  margin-top: -250px;
-  margin-left: -183px;
+  border: solid 0.3rem rgba(0, 0, 0, 1);
+  margin-top: -30.4rem;
+  margin-left: -22rem;
 }
 .circle-03 {
-  width: 100px;
+  width: 11.2rem;
   background: rgba(106, 151, 125, 1);
-  border: solid 1px rgba(0, 0, 0, 1);
-  margin-top: -125px;
-  margin-left: -145px;
+  border: solid 0.3rem rgba(0, 0, 0, 1);
+  margin-top: -15.1rem;
+  margin-left: -17.6rem;
 }
 .circle-04 {
-  width: 200px;
+  width: 23rem;
   background: rgba(251, 223, 70, 1);
-  border: solid 1px rgba(0, 0, 0, 0.2);
-  margin-top: -50px;
-  margin-left: -190px;
+  border: solid 0.3rem rgba(0, 0, 0, 0.2);
+  margin-top: -6.1rem;
+  margin-left: -22.8rem;
 }
 .circle-05 {
-  width: 140px;
+  width: 16.6rem;
   background: rgba(179, 13, 28, 1);
-  border: solid 2px rgba(0, 0, 0, 1);
-  margin-top: -193px;
-  margin-left: -60px;
+  border: solid 0.4rem rgba(0, 0, 0, 1);
+  margin-top: -23.6rem;
+  margin-left: -7.6rem;
 }
 .circle-06 {
-  width: 85px;
+  width: 10rem;
   background: rgba(0, 0, 0, 1);
-  box-shadow: inset 0 0 0 28px rgba(218, 79, 40, 1);
-  border: solid 5px rgba(0, 0, 0, 1);
-  margin-top: -70px;
-  margin-left: -80px;
+  box-shadow: inset 0 0 0 3.4rem rgba(218, 79, 40, 1);
+  border: solid 0.8rem rgba(0, 0, 0, 1);
+  margin-top: -9.4rem;
+  margin-left: -9.5rem;
 }
 .circle-07 {
-  width: 25px;
+  width: 2.8rem;
   background: rgba(84, 16, 22, 1);
-  border: solid 1px rgba(0, 0, 0, 1);
-  margin-top: 70px;
-  margin-left: -10px;
+  border: solid 0.3rem rgba(0, 0, 0, 1);
+  margin-top: 8rem;
+  margin-left: -1rem;
 }
 .circle-08 {
-  width: 75px;
+  width: 8.4rem;
   background: rgba(207, 52, 58, 1);
-  border: solid 2px rgba(0, 0, 0, 1);
-  margin-top: 93px;
-  margin-left: -155px;
+  border: solid 0.4rem rgba(0, 0, 0, 1);
+  margin-top: 11.2rem;
+  margin-left: -18.6rem;
 }
 .circle-09 {
-  width: 60px;
+  width: 6.7rem;
   background: rgba(72, 153, 115, 1);
-  border: solid 4px rgba(0, 0, 0, 1);
-  margin-top: 42px;
-  margin-left: -220px;
+  border: solid 0.5rem rgba(0, 0, 0, 1);
+  margin-top: 4.9rem;
+  margin-left: -26.3rem;
 }
 .circle-10 {
-  width: 35px;
+  width: 4.4rem;
   background: rgba(222, 0, 29, 1);
-  border: solid 10px rgba(0, 0, 0, 1);
-  margin-top: -55px;
-  margin-left: -273px;
+  border: solid 1rem rgba(0, 0, 0, 1);
+  margin-top: -6.8rem;
+  margin-left: -32.5rem;
 }
 .circle-11 {
-  width: 17px;
+  width: 1.8rem;
   background: rgba(26, 60, 118, 1);
-  border: solid 5px rgba(0, 0, 0, 1);
-  margin-top: 55px;
-  margin-left: -303px;
+  border: solid 0.7rem rgba(0, 0, 0, 1);
+  margin-top: 6.2rem;
+  margin-left: -36.1rem;
 }
 .circle-12 {
-  width: 50px;
+  width: 5.7rem;
   background: rgba(217, 97, 64, 1);
-  border: solid 1px rgba(0, 0, 0, 1);
-  margin-top: 163px;
-  margin-left: -263px;
+  border: solid 0.3rem rgba(0, 0, 0, 1);
+  margin-top: 19rem;
+  margin-left: -31.2rem;
 }
 .circle-13 {
-  width: 5px;
+  width: 0.6rem;
   background: rgba(37, 37, 37, 1);
-  border: solid 4px rgba(0, 0, 0, 1);
-  margin-top: 182px;
-  margin-left: -80px;
+  border: solid 0.5rem rgba(0, 0, 0, 1);
+  margin-top: 21.4rem;
+  margin-left: -9.6rem;
 }
 .circle-14 {
-  width: 15px;
+  width: 1.9rem;
   background: rgba(192, 16, 25, 1);
-  border: solid 4px rgba(0, 0, 0, 1);
-  margin-top: -315px;
-  margin-left: -43px;
+  border: solid 0.5rem rgba(0, 0, 0, 1);
+  margin-top: -38rem;
+  margin-left: -5.1rem;
 }
 .circle-15 {
-  width: 42px;
+  width: 5rem;
   background: rgba(211, 122, 114, 1);
-  border: solid 3px rgba(0, 0, 0, 1);
-  margin-top: 243px;
-  margin-left: 15px;
+  border: solid 0.4rem rgba(0, 0, 0, 1);
+  margin-top: 28.6rem;
+  margin-left: 1.9rem;
 }
 .circle-16 {
-  width: 20px;
+  width: 2.2rem;
   background: rgba(237, 175, 74, 1);
-  border: solid 2px rgba(0, 0, 0, 1);
-  margin-top: 193px;
-  margin-left: 68px;
+  border: solid 0.4rem rgba(0, 0, 0, 1);
+  margin-top: 22.7rem;
+  margin-left: 7.9rem;
 }
 .circle-17 {
-  width: 38px;
+  width: 5rem;
   background: rgba(24, 27, 27, 1);
-  margin-top: -95px;
-  margin-left: 133px;
+  margin-top: -12rem;
+  margin-left: 16rem;
 }
 .circle-18 {
-  width: 55px;
+  width: 6.5rem;
   background: rgba(24, 27, 27, 1);
-  margin-top: -173px;
-  margin-left: 63px;
+  margin-top: -21rem;
+  margin-left: 7.3rem;
 }
 .circle-19 {
-  width: 75px;
+  width: 9rem;
   background: rgba(13, 94, 109, 1);
-  border: solid 2px rgba(0, 0, 0, 1);
-  margin-top: -55px;
-  margin-left: 186px;
+  border: solid 0.3rem rgba(0, 0, 0, 1);
+  margin-top: -6.9rem;
+  margin-left: 22.3rem;
 }
 .circle-20 {
-  width: 200px;
+  width: 23.4rem;
   background: rgba(63, 143, 120, 1);
-  border: solid 1px rgba(0, 0, 0, 1);
-  margin-top: -125px;
-  margin-left: 42px;
+  border: solid 0.3rem rgba(0, 0, 0, 1);
+  margin-top: -15.4rem;
+  margin-left: 5.6rem;
 }
 .circle-21 {
-  width: 100px;
+  width: 12rem;
   background: rgba(150, 86, 104, 1);
-  margin-top: -235px;
-  margin-left: 103px;
+  margin-top: -28.7rem;
+  margin-left: 12.3rem;
 }
 .circle-22 {
-  width: 13px;
+  width: 1.5rem;
   background: rgba(224, 73, 70, 1);
-  border: solid 3px rgba(0, 0, 0, 1);
-  margin-top: 161px;
-  margin-left: -26px;
+  border: solid 0.4rem rgba(0, 0, 0, 1);
+  margin-top: 18.8rem;
+  margin-left: -3.2rem;
 }
 .circle-23 {
-  width: 30px;
+  width: 3.7rem;
   background: rgba(192, 77, 96, 1);
-  border: solid 3px rgba(0, 0, 0, 1);
-  margin-top: 170px;
-  margin-left: 215px;
+  border: solid 0.4rem rgba(0, 0, 0, 1);
+  margin-top: 20rem;
+  margin-left: 25.9rem;
 }
 .circle-24 {
-  width: 30px;
+  width: 3.8rem;
   background: rgba(27, 30, 24, 1);
-  border: solid 3px rgba(0, 0, 0, 1);
-  margin-top: 132px;
-  margin-left: 133px;
+  border: solid 0.4rem rgba(0, 0, 0, 1);
+  margin-top: 15.4rem;
+  margin-left: 15.8rem;
 }
 .circle-25 {
-  width: 130px;
+  width: 16rem;
   background: rgba(243, 212, 79, 1);
-  border: solid 2px rgba(0, 0, 0, 1);
-  margin-top: 40px;
-  margin-left: 45px;
+  border: solid 0.3rem rgba(0, 0, 0, 1);
+  margin-top: 4rem;
+  margin-left: 5.4rem;
 }
 
 

@@ -12,3 +12,4 @@ A trial experiment artwork using Kandinsky's "Circles in a Circle' 1923.
 ![](imgs/planets3.jpg) -->
 
 
+- [ ] need to make ring opaque again !
