@@ -28,7 +28,8 @@ body {
 }
 
 
-main {
+main,
+main .outer_ring {
   position: relative;
   /* width: 100vw;
   height: 100vh; */
