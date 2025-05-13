@@ -2,6 +2,8 @@
   box-sizing: border-box;
   color-scheme: only light;
   font-size: 1vmin;
+  --t_l: 10s;
+  --t_c: 45s;
 }
 
 body {
@@ -23,7 +25,7 @@ body {
 }
 
 *, *:after {
-  animation: none !important;
+  /* animation: none !important; */
   /* opacity: 0.8; */
 }
 
@@ -98,8 +100,8 @@ main section div {
   height: 100%;
   /* animation: orbit var(--t, 40s) linear infinite; */
   /* --x: calc(var(--t) * 10); */
-  /* animation: orbit var(--x, 20s) linear infinite; */
 }
+
 .ray-01 {
   width: 43rem;
   background: linear-gradient(to bottom, rgb(55, 143, 141) 60%, rgb(146, 185, 143) 100%);
@@ -108,6 +110,12 @@ main section div {
   margin-left: -10.5rem;
   transform: skew(39.5deg);
   height: 150%;
+  animation: 20s infinite alternate linear shineRay1;
+}
+@keyframes shineRay1 {
+  to {
+    transform: skew(-49.5deg);
+  }
 }
 .ray-02 {
   width: 42rem;
@@ -117,6 +125,12 @@ main section div {
   margin-left: -20rem;
   transform: skew(-49.5deg);
   height: 150%;
+  animation: 40s infinite alternate linear shineRay2;
+}
+@keyframes shineRay2 {
+  to {
+    transform: skew(39.5deg);
+  }
 }
 
 
@@ -311,19 +325,34 @@ main section div {
 
 
 
+
+
+
+
 [class^='line-'] {
   position: absolute;
   top: 50%;
   left: 50%;
   border-radius: 20px;
   background: rgba(0, 0, 0, 1);
+  /* animation: var(--t_l) infinite linear rotateLine; */
 }
+@keyframes rotateLine {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+
+
+
 
 .line-01 {
   width: 62rem;
   height: 0.3rem;
   margin-top: -20rem;
   margin-left: -28rem;
+  animation: calc(var(--t_l) * 9.5) infinite linear rotateLine;
   transform: rotateZ(9.5deg);
 }
 .line-02 {
@@ -331,6 +360,7 @@ main section div {
   height: 0.3rem;
   margin-top: 7.5rem;
   margin-left: -38.6rem;
+  animation: calc(var(--t_l) * 11.5) infinite linear rotateLine;
   transform: rotateZ(11.5deg);
 }
 .line-03 {
@@ -338,6 +368,7 @@ main section div {
   height: 0.4rem;
   margin-top: -0.7rem;
   margin-left: -37.4rem;
+  animation: calc(var(--t_l) * 15) infinite linear rotateLine;
   transform: rotateZ(15deg);
 }
 .line-04 {
@@ -345,6 +376,7 @@ main section div {
   height: 0.4rem;
   margin-top: 1.6rem;
   margin-left: -38rem;
+  animation: calc(var(--t_l) * 15.7) infinite linear rotateLine;
   transform: rotateZ(15.7deg);
 }
 .line-05 {
@@ -352,6 +384,7 @@ main section div {
   height: 0.4rem;
   margin-top: 13rem;
   margin-left: -33rem;
+  animation: calc(var(--t_l) * 7) infinite linear rotateLine;
   transform: rotateZ(7deg);
 }
 .line-06 {
@@ -359,6 +392,7 @@ main section div {
   height: 0.4rem;
   margin-top: 17rem;
   margin-left: -35rem;
+  animation: calc(var(--t_l) * 27.2) infinite linear rotateLine;
   transform: rotateZ(27.2deg);
 }
 .line-07 {
@@ -366,6 +400,7 @@ main section div {
   height: 0.4rem;
   margin-top: -11rem;
   margin-left: -27rem;
+  animation: calc(var(--t_l) * 36.3) infinite linear rotateLine;
   transform: rotateZ(36.3deg);
 }
 
@@ -377,6 +412,7 @@ main section div {
   height: 0.3rem;
   margin-top: -9.3rem;
   margin-left: -38rem;
+  animation: calc(var(--t_l) * 42) infinite linear rotateLine;
   transform: rotateZ(-42deg);
 }
 .line-09 {
@@ -384,6 +420,7 @@ main section div {
   height: 0.3rem;
   margin-top: -7.5rem;
   margin-left: -38.7rem;
+  animation: calc(var(--t_l) * 52.4) infinite linear rotateLine;
   transform: rotateZ(-52.4deg);
 }
 .line-10 {
@@ -391,6 +428,7 @@ main section div {
   height: 0.3rem;
   margin-top: -1.3rem;
   margin-left: -36.5rem;
+  animation: calc(var(--t_l) * 59) infinite linear rotateLine;
   transform: rotateZ(-59deg);
 }
 .line-11 {
@@ -398,6 +436,7 @@ main section div {
   height: 0.3rem;
   margin-top: 1.3rem;
   margin-left: -15rem;
+  animation: calc(var(--t_l) * 81) infinite linear rotateLine;
   transform: rotateZ(-81deg);
 }
 .line-12 {
@@ -405,6 +444,7 @@ main section div {
   height: 0.6rem;
   margin-top: 2.6rem;
   margin-left: 3.3rem;
+  animation: calc(var(--t_l) * 90.5) infinite linear rotateLine;
   transform: rotateZ(-90.5deg);
 }
 .line-13 {
@@ -412,6 +452,7 @@ main section div {
   height: 0.2rem;
   margin-top: 0.6rem;
   margin-left: -15.4rem;
+  animation: calc(var(--t_l) * 80.7) infinite linear rotateLine;
   transform: rotateZ(-80.7deg);
 }
 .line-14 {
@@ -419,6 +460,7 @@ main section div {
   height: 0.25rem;
   margin-top: 2.1rem;
   margin-left: -15.6rem;
+  animation: calc(var(--t_l) * 80.7) infinite linear rotateLine;
   transform: rotateZ(-80.7deg);
 }
 .line-15 {
@@ -426,6 +468,7 @@ main section div {
   height: 0.2rem;
   margin-top: 5.4rem;
   margin-left: -36.6rem;
+  animation: calc(var(--t_l) * 53.7) infinite linear rotateLine;
   transform: rotateZ(-53.7deg);
 }
 .line-16 {
@@ -433,6 +476,7 @@ main section div {
   height: 0.2rem;
   margin-top: 6rem;
   margin-left: -35.2rem;
+  animation: calc(var(--t_l) * 55.7) infinite linear rotateLine;
   transform: rotateZ(-55.7deg);
 }
 
@@ -443,6 +487,7 @@ main section div {
   height: 0.2rem;
   margin-top: -8.1rem;
   margin-left: -38.8rem;
+  animation: calc(var(--t_l) * 60) infinite linear rotateLine;
   transform: rotateZ(-60deg);
 }
 .line-18 {
@@ -450,6 +495,7 @@ main section div {
   height: 0.2rem;
   margin-top: -8.2rem;
   margin-left: -37.4rem;
+  animation: calc(var(--t_l) * 52) infinite linear rotateLine;
   transform: rotateZ(-52deg);
 }
 .line-19 {
@@ -457,6 +503,7 @@ main section div {
   height: 0.2rem;
   margin-top: -5.2rem;
   margin-left: -29.3rem;
+  animation: calc(var(--t_l) * 73) infinite linear rotateLine;
   transform: rotateZ(-73deg);
 }
 .line-20 {
@@ -464,6 +511,7 @@ main section div {
   height: 0.2rem;
   margin-top: -26rem;
   margin-left: -0.3rem;
+  animation: calc(var(--t_l) * 128) infinite linear rotateLine;
   transform: rotateZ(-128deg);
 }
 .line-21 {
@@ -471,6 +519,7 @@ main section div {
   height: 0.2rem;
   margin-top: -27.8rem;
   margin-left: 1rem;
+  animation: calc(var(--t_l) * 124) infinite linear rotateLine;
   transform: rotateZ(-124deg);
 }
 .line-22 {
@@ -478,6 +527,7 @@ main section div {
   height: 0.2rem;
   margin-top: -14.3rem;
   margin-left: 23rem;
+  animation: calc(var(--t_l) * 1) infinite linear rotateLine;
   transform: rotateZ(0deg);
 }
 .line-23 {
@@ -485,6 +535,7 @@ main section div {
   height: 0.2rem;
   margin-top: -12.8rem;
   margin-left: 23rem;
+  animation: calc(var(--t_l) * 1) infinite linear rotateLine;
   transform: rotateZ(0deg);
 }
 .line-24 {
@@ -492,6 +543,7 @@ main section div {
   height: 0.2rem;
   margin-top: 25.4rem;
   margin-left: 6.8rem;
+  animation: calc(var(--t_l) * 30) infinite linear rotateLine;
   transform: rotateZ(-30deg);
 }
 .line-25 {
@@ -499,6 +551,7 @@ main section div {
   height: 0.2rem;
   margin-top: 26.8rem;
   margin-left: 7.5rem;
+  animation: calc(var(--t_l) * 30) infinite linear rotateLine;
   transform: rotateZ(-30deg);
 }
 .line-26 {
@@ -506,6 +559,7 @@ main section div {
   height: 0.2rem;
   margin-top: 28.2rem;
   margin-left: 8.3rem;
+  animation: calc(var(--t_l) * 30) infinite linear rotateLine;
   transform: rotateZ(-30deg);
 }
 .line-27 {
@@ -513,6 +567,7 @@ main section div {
   height: 0.3rem;
   margin-top: 24.7rem;
   margin-left: -26.7rem;
+  animation: calc(var(--t_l) * 10) infinite linear rotateLine;
   transform: rotateZ(-10deg);
 }
 .line-28 {
@@ -520,5 +575,6 @@ main section div {
   height: 0.3rem;
   margin-top: 25.5rem;
   margin-left: -22.7rem;
+  animation: calc(var(--t_l) * 30) infinite linear rotateLine;
   transform: rotateZ(30deg);
 }
