@@ -36,9 +36,8 @@ main {
   width: 100vw;
   max-width: 100vh;
   height: auto;
-  border: 1px solid red;
   aspect-ratio: 1;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 main img {
@@ -77,14 +76,20 @@ main section div {
   position: absolute;
   top: calc(50% - 46.2rem);
   left: calc(50% - 45.5rem);
-  z-index: 9;
+  z-index: 999 !important;
 }
 
 
 
 
 
-
+.rays {
+  width: 100vw;
+  max-width: 100vh;
+  height: auto;
+  aspect-ratio: 1;
+  position: absolute;
+}
 
 [class^='ray-'] {
   aspect-ratio: 1;
@@ -92,7 +97,7 @@ main section div {
   top: 50%;
   left: 50%;
   height: 100%;
-  z-index: -1;
+  z-index: -9 !important;
   /* animation: orbit var(--t, 40s) linear infinite; */
   /* --x: calc(var(--t) * 10); */
   /* animation: orbit var(--x, 20s) linear infinite; */
@@ -100,18 +105,20 @@ main section div {
 .ray-01 {
   width: 43rem;
   background: linear-gradient(to bottom, rgb(55, 143, 141) 60%, rgb(146, 185, 143) 100%);
-  clip-path: polygon(0 0, 16rem 0, 100% 100%, 0 100%);
-  margin-top: -50%;
-  margin-left: 9.5rem;
+  clip-path: polygon(0 0, 0rem 0, 100% 100%, 0 100%);
+  margin-top: -100rem;
+  margin-left: -10.5rem;
   transform: skew(39.5deg);
+  height: 150%;
 }
 .ray-02 {
-  width: 40rem;
+  width: 42rem;
   background: rgb(226, 183, 111);
-  clip-path: polygon(0 0, 9rem 0, 100% 100%, 0 100%);
-  margin-top: -50rem;
-  margin-left: -19rem;
-  transform: skew(-50.5deg);
+  clip-path: polygon(0 0, 6rem 0, 100% 100%, 0 100%);
+  margin-top: -73rem;
+  margin-left: -20rem;
+  transform: skew(-49.5deg);
+  height: 150%;
 }
 
 
