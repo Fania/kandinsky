@@ -363,3 +363,21 @@ main section div {
   margin-left: -27rem;
   transform: rotateZ(36.3deg);
 }
+
+
+
+
+.line-08 {
+  width: 40rem;
+  height: 0.3rem;
+  margin-top: -9.3rem;
+  margin-left: -38rem;
+  transform: rotateZ(-42deg);
+}
+.line-09 {
+  width: 40rem;
+  height: 0.3rem;
+  margin-top: -9.3rem;
+  margin-left: -38rem;
+  transform: rotateZ(-42deg);
+}
