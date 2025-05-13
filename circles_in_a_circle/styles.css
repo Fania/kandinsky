@@ -69,14 +69,12 @@ main section div {
 
 .ring {
   width: 91rem;
-  /* background: rgb(0, 0, 0, 1); */
   box-shadow: inset 0 0 0 4rem rgba(0, 0, 0, 1);
   border-radius: 50%;
   aspect-ratio: 1;
   position: absolute;
   top: calc(50% - 46.2rem);
   left: calc(50% - 45.5rem);
-  z-index: 999 !important;
 }
 
 
@@ -97,7 +95,6 @@ main section div {
   top: 50%;
   left: 50%;
   height: 100%;
-  z-index: -9 !important;
   /* animation: orbit var(--t, 40s) linear infinite; */
   /* --x: calc(var(--t) * 10); */
   /* animation: orbit var(--x, 20s) linear infinite; */
