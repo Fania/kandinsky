@@ -31,6 +31,7 @@ body {
 
 
 main,
+canvas,
 main .outer_ring {
   position: relative;
   /* width: 100vw;
@@ -39,8 +40,14 @@ main .outer_ring {
   width: 100vw;
   max-width: 100vh;
   height: auto;
+  max-height: 100vh;
   aspect-ratio: 1;
   /* overflow: hidden; */
+}
+
+canvas {
+  border: 1px solid red;
+  position: absolute;
 }
 
 main img {
@@ -54,7 +61,8 @@ main .outer_ring {
   position: absolute;
   aspect-ratio: 1;
   width: 100%;
-  height: auto;
+  /* height: 100vh; */
+  /* max-height: 100vh; */
   top: 0;
   left: 0;
   transform-style: preserve-3d;
@@ -85,10 +93,6 @@ main section div {
 
 
 .rays {
-  width: 100vw;
-  max-width: 100vh;
-  height: auto;
-  aspect-ratio: 1;
   position: absolute;
 }
 
@@ -97,35 +101,52 @@ main section div {
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 100%;
-  /* animation: orbit var(--t, 40s) linear infinite; */
-  /* --x: calc(var(--t) * 10); */
+  height: 200vh;
+  /* height: 200%; */
 }
 
 .ray-01 {
-  width: 43rem;
+  /* width: 43rem;
   background: linear-gradient(to bottom, rgb(55, 143, 141) 60%, rgb(146, 185, 143) 100%);
   clip-path: polygon(0 0, 0rem 0, 100% 100%, 0 100%);
-  margin-top: -100rem;
-  margin-left: -10.5rem;
+  margin-top: -250rem;
+  margin-left: -20rem;
+  transform: skew(39.5deg); */
+  width: 40rem;
+  background: linear-gradient(to bottom, rgb(55, 143, 141) 50%, rgb(146, 185, 143) 100%);
+  clip-path: polygon(0 0, 1rem 0, 100% 100%, 0 100%);
+  margin-top: -179rem;
+  margin-left: -35rem;
   transform: skew(39.5deg);
-  height: 150%;
-  animation: 20s infinite alternate linear shineRay1;
+  /* animation: 20s infinite alternate linear shineRay1; */
 }
 @keyframes shineRay1 {
   to {
-    transform: skew(-49.5deg);
+    /* transform: skew(-49.5deg); */
+    /* 
+    top-left (0% 0%)
+    top-right (100% 0%)
+    bottom-right (100% 100%)
+    bottom-left (0% 100%)
+    */
+    clip-path: polygon(0 0, 0 0, 100% 100%, 0 100%);
   }
 }
 .ray-02 {
-  width: 42rem;
+  /* width: 42rem;
   background: rgb(226, 183, 111);
   clip-path: polygon(0 0, 6rem 0, 100% 100%, 0 100%);
-  margin-top: -73rem;
+  margin-top: -100rem;
   margin-left: -20rem;
+  transform: skew(-49.5deg); */
+
+  width: 45rem;
+  background: rgb(226, 183, 111);
+  clip-path: polygon(0 0, 6rem 0, 100% 100%, 0 100%);
+  margin-top: -125rem;
+  margin-left: -21rem;
   transform: skew(-49.5deg);
-  height: 150%;
-  animation: 40s infinite alternate linear shineRay2;
+  /* animation: 40s infinite alternate linear shineRay2; */
 }
 @keyframes shineRay2 {
   to {
