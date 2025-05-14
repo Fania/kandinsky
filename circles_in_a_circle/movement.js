@@ -32,46 +32,52 @@ function drawCircle(x, y, s, f, lw=2, b="black") {
 }
 
 
-drawCircle(500, 500, 145, "rgb(63 72 49)");
-drawCircle(400, 300, 100.35, "rgb(224 168 171)");
-drawCircle(350, 400, 56, "rgb(106 151 125)");
-drawCircle(400, 550, 115, "rgb(251 223 70)");
-drawCircle(550, 330, 83, "rgb(179 13 28)");
-
-drawCircle(460, 440, 50, "rgb(218 79 40)", 12);
-drawCircle(460, 440, 13, "black");
-drawCircle(520, 550, 14, "rgb(84 16 22)");
-drawCircle(320, 630, 42, "rgb(207 52 58)");
-drawCircle(280, 550, 33.5, "rgb(72 153 115)", 8);
-drawCircle(230, 450, 22, "rgb(222 0 29)", 16);
-drawCircle(150, 550, 9, "rgb(26 60 118)", 6);
-drawCircle(200, 700, 28.5, "rgb(217 97 64)");
-drawCircle(350, 700, 6, "rgb(37 37 37)");
-drawCircle(470, 150, 8, "rgb(192 16 25)", 8);
-drawCircle(570, 780, 25, "rgb(211 122 114)", 4);
-drawCircle(620, 720, 11, "rgb(237 175 74)");
-drawCircle(720, 380, 25, "rgb(24 27 27)");
-drawCircle(640, 320, 32.5, "rgb(24 27 27)");
-drawCircle(800, 460, 45, "rgb(13 94 109)");
-drawCircle(680, 460, 117, "rgb(63 143 120)");
-drawCircle(700, 260, 60, "rgb(150 86 104)", 0);
-drawCircle(450, 680, 7.5, "rgb(224 73 70)");
-drawCircle(780, 680, 18.5, "rgb(192 77 96)");
-drawCircle(700, 650, 18, "rgb(27 30 24)");
-drawCircle(650, 620, 80, "rgb(243 212 79)");
-
+// drawCircle(470, 535, 145, "rgb(63 72 49)");
+// drawCircle(385, 300, 105, "rgb(224 168 171)");
+// drawCircle(350, 400, 56, "rgb(106 151 125)");
+// drawCircle(390, 550, 115, "rgb(251 223 70)");
+// drawCircle(515, 350, 83, "rgb(179 13 28)");
+// drawCircle(470, 460, 50, "rgb(218 79 40)", 15);
+// drawCircle(470, 460, 15, "black");
+// drawCircle(510, 595, 14, "rgb(84 16 22)");
+// drawCircle(360, 650, 50, "rgb(207 52 58)");
+// drawCircle(275, 585, 38, "rgb(72 153 115)", 6);
+// drawCircle(205, 460, 25, "rgb(222 0 29)", 16);
+// drawCircle(152, 575, 13, "rgb(26 60 118)", 6);
+// drawCircle(215, 720, 28.5, "rgb(217 97 64)");
+// drawCircle(410, 720, 8, "rgb(37 37 37)");
+// drawCircle(465, 130, 10, "rgb(192 16 25)", 8);
+// drawCircle(548, 815, 25, "rgb(211 122 114)", 4);
+// drawCircle(596, 740, 13, "rgb(237 175 74)");
+// drawCircle(680, 402, 22, "rgb(24 27 27)");
+// drawCircle(610, 320, 32.5, "rgb(24 27 27)");
+// drawCircle(770, 475, 45, "rgb(13 94 109)");
+// drawCircle(675, 465, 117, "rgb(63 143 120)");
+// drawCircle(685, 275, 60, "rgb(150 86 104)", 0);
+// drawCircle(477, 698, 10, "rgb(224 73 70)");
+// drawCircle(780, 720, 18.5, "rgb(192 77 96)");
+// drawCircle(680, 675, 22, "rgb(27 30 24)");
+// drawCircle(630, 620, 85, "rgb(243 212 79)");
 
 
 
 
 
 
+// x,y start pos
+// x2,y2 end pos
+// lw lineWidth default 2
+function drawLine(x, y, x2, y2, lw=2) {
+  ctx.beginPath();
+  ctx.strokeStyle = 'black';
+  ctx.lineCap = 'round';
+  ctx.lineWidth = lw;
+  ctx.moveTo(x, y);
+  ctx.lineTo(x2, y2);
+  ctx.stroke();
+  ctx.closePath();
+}
+
+drawLine(250,250,800,300);
 
 
-
-
-
-
-
-// Draw a line
-// ctx.lineTo(200, 200);
