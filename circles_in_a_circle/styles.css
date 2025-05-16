@@ -26,7 +26,7 @@ body {
 
 *, *:after {
   animation: none !important;
-  opacity: 0.9;
+  /* opacity: 0.9; */
 }
 
 
@@ -46,14 +46,15 @@ main .outer_ring {
 }
 
 canvas {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   position: absolute;
   /* mix-blend-mode: hard-light; */
 }
 
-main img {
+img {
   object-fit: contain;
   opacity: 0.3;
+  display: none;
 }
 
 main img,
@@ -87,6 +88,7 @@ main section div {
   position: absolute;
   top: calc(50% - 46.2rem);
   left: calc(50% - 45.5rem);
+  z-index: 9;
 }
 
 
