@@ -1,55 +1,54 @@
-// console.log('test');
 
-// const circlesParent = document.querySelector('.circles');
-// const circles = [...circlesParent.children];
-// console.log(circles);
-
-// const linesParent = document.querySelector('.lines');
-// const lines = [...linesParent.children];
-// console.log(lines);
-
-
-
-const canvas = document.getElementById("playground");
-const ctx = canvas.getContext("2d");
-ctx.globalCompositeOperation = 'hard-light';
-// ctx.globalCompositeOperation = 'difference';
+const canvasBack = document.getElementById("background");
+const canvasPlay = document.getElementById("playground");
+const canvasFore = document.getElementById("foreground");
+const ctxB = canvasBack.getContext("2d");
+const ctxP = canvasPlay.getContext("2d");
+const ctxF = canvasFore.getContext("2d");
+ctxB.globalCompositeOperation = 'hard-light';
+// ctxB.globalCompositeOperation = 'destination-over';
+// ctxP.globalCompositeOperation = 'color-dodge';
+// ctxP.globalCompositeOperation = 'difference';
+// ctxP.globalCompositeOperation = 'exclusion';
+ctxP.globalCompositeOperation = 'hard-light';
+ctxF.globalCompositeOperation = 'source-over';
 
 
 
 // rays
-ctx.beginPath();
-ctx.fillStyle = "rgb(226, 183, 111)";
-ctx.moveTo(915,10);
-ctx.lineTo(10,745);
-ctx.lineTo(10,990);
-ctx.lineTo(120,990);
-ctx.lineTo(990,10);
-ctx.fill();
-ctx.closePath();
-ctx.beginPath();
-const linGrad = ctx.createLinearGradient(290,10, 990,760);
-linGrad.addColorStop(0.5, "rgb(55 143 141)");
-linGrad.addColorStop(1, "rgb(146 185 143)");
-ctx.fillStyle = linGrad;
-ctx.moveTo(194,10);
-ctx.lineTo(990,985);
-ctx.lineTo(990,600);
-ctx.lineTo(350,10);
-ctx.fill();
-ctx.closePath();
+ctxB.beginPath();
+ctxB.fillStyle = "rgb(226 183 111 / 90%)";
+ctxB.moveTo(915,10);
+ctxB.lineTo(10,745);
+ctxB.lineTo(10,990);
+ctxB.lineTo(120,990);
+ctxB.lineTo(990,10);
+ctxB.fill();
+ctxB.closePath();
+ctxB.beginPath();
+const linGrad = ctxB.createLinearGradient(290,10, 990,760);
+linGrad.addColorStop(0.5, "rgb(55 143 141 / 90%)");
+linGrad.addColorStop(1, "rgb(146 185 143  / 90%)");
+ctxB.fillStyle = linGrad;
+ctxB.moveTo(194,10);
+ctxB.lineTo(990,985);
+ctxB.lineTo(990,600);
+ctxB.lineTo(350,10);
+ctxB.fill();
+ctxB.closePath();
 
 
 
 
 
 
+// ctx context
 // x,y position
 // s size of circle
 // f fill colour
 // lw lineWidth default 2
 // b border colour 
-function drawCircle(x, y, s, f, lw=2, b="black") {
+function drawCircle(ctx, x, y, s, f, lw=2, b="black") {
   ctx.beginPath();
   ctx.fillStyle = f;
   ctx.strokeStyle = b;
@@ -61,32 +60,40 @@ function drawCircle(x, y, s, f, lw=2, b="black") {
 }
 
 
-drawCircle(385, 300, 105, "rgb(224 168 171)");
-drawCircle(350, 400, 56, "rgb(106 151 125)");
-drawCircle(390, 550, 115, "rgb(251 223 70)");
-drawCircle(470, 535, 145, "rgb(63 72 49)", 0, 'transparent');
-drawCircle(515, 350, 83, "rgb(179 13 28)");
-drawCircle(470, 460, 50, "rgb(218 79 40)", 15);
-drawCircle(470, 460, 15, "black");
-drawCircle(360, 650, 50, "rgb(207 52 58)");
-drawCircle(275, 585, 38, "rgb(72 153 115)", 6);
-drawCircle(205, 460, 25, "rgb(222 0 29)", 16);
-drawCircle(152, 575, 13, "rgb(26 60 118)", 6);
-drawCircle(215, 720, 28.5, "rgb(217 97 64)");
-drawCircle(410, 720, 8, "rgb(37 37 37)");
-drawCircle(465, 130, 10, "rgb(192 16 25)", 8);
-drawCircle(548, 815, 25, "rgb(211 122 114)", 4);
-drawCircle(596, 740, 13, "rgb(237 175 74)");
-drawCircle(680, 402, 22, "rgb(24 27 27)");
-drawCircle(610, 320, 32.5, "rgb(24 27 27)");
-drawCircle(770, 475, 45, "rgb(13 94 109)");
-drawCircle(675, 465, 117, "rgb(63 143 120)");
-drawCircle(685, 275, 60, "rgb(150 86 104)", 0, 'transparent');
-drawCircle(477, 698, 10, "rgb(224 73 70)");
-drawCircle(780, 720, 18.5, "rgb(192 77 96)");
-drawCircle(630, 620, 85, "rgb(243 212 79)");
-drawCircle(680, 675, 22, "rgb(27 30 24)");
-drawCircle(510, 595, 14, "rgb(84 16 22)");
+drawCircle(ctxP, 385, 300, 105, "rgb(224 168 171 / 90%)");
+drawCircle(ctxP, 350, 400, 56, "rgb(106 151 125 / 90%)");
+drawCircle(ctxP, 390, 550, 115, "rgb(251 223 70 / 90%)");
+drawCircle(ctxP, 470, 535, 145, "rgb(63 72 49/ 90%)", 0, 'transparent');
+drawCircle(ctxP, 515, 350, 83, "rgb(179 13 28 / 90%)");
+drawCircle(ctxP, 470, 460, 50, "rgb(218 79 40/ 90%)", 15);
+drawCircle(ctxP, 470, 460, 15, "rgb(0 0 0 / 90%)");
+drawCircle(ctxP, 360, 650, 50, "rgb(207 52 58 / 90%)");
+drawCircle(ctxP, 275, 585, 38, "rgb(72 153 115/ 90%)", 6);
+drawCircle(ctxP, 205, 460, 25, "rgb(222 0 29/ 90%)", 16);
+drawCircle(ctxP, 152, 575, 13, "rgb(26 60 118/ 90%)", 6);
+drawCircle(ctxP, 215, 720, 28.5, "rgb(217 97 64 / 90%)");
+drawCircle(ctxP, 410, 720, 8, "rgb(37 37 37 / 90%)");
+drawCircle(ctxP, 465, 130, 10, "rgb(192 16 25/ 90%)", 8);
+drawCircle(ctxP, 548, 815, 25, "rgb(211 122 114/ 90%)", 4);
+drawCircle(ctxP, 596, 740, 13, "rgb(237 175 74 / 90%)");
+drawCircle(ctxP, 680, 402, 22, "rgb(24 27 27 / 90%)");
+drawCircle(ctxP, 610, 320, 32.5, "rgb(24 27 27 / 90%)");
+drawCircle(ctxP, 770, 475, 45, "rgb(13 94 109 / 90%)");
+drawCircle(ctxP, 675, 465, 117, "rgb(63 143 120 / 90%)");
+drawCircle(ctxP, 685, 275, 60, "rgb(150 86 104/ 90%)", 0, 'transparent');
+drawCircle(ctxP, 477, 698, 10, "rgb(224 73 70 / 90%)");
+drawCircle(ctxP, 780, 720, 18.5, "rgb(192 77 96 / 90%)");
+drawCircle(ctxP, 630, 620, 85, "rgb(243 212 79 / 90%)");
+drawCircle(ctxP, 680, 675, 22, "rgb(27 30 24 / 90%)");
+drawCircle(ctxP, 510, 595, 14, "rgb(84 16 22 / 90%)");
+
+
+
+
+
+
+// ring
+drawCircle(ctxF, 500, 500, 450, "transparent", 50, 'black');
 
 
 
@@ -97,14 +104,14 @@ drawCircle(510, 595, 14, "rgb(84 16 22)");
 // x2,y2 end pos
 // lw lineWidth default 2
 function drawLine(x, y, x2, y2, lw=2) {
-  ctx.beginPath();
-  ctx.strokeStyle = 'black';
-  ctx.lineCap = 'round';
-  ctx.lineWidth = lw;
-  ctx.moveTo(x, y);
-  ctx.lineTo(x2, y2);
-  ctx.stroke();
-  ctx.closePath();
+  ctxP.beginPath();
+  ctxP.strokeStyle = 'black';
+  ctxP.lineCap = 'round';
+  ctxP.lineWidth = lw;
+  ctxP.moveTo(x, y);
+  ctxP.lineTo(x2, y2);
+  ctxP.stroke();
+  ctxP.closePath();
 }
 
 drawLine(225,252,835,355);
@@ -149,18 +156,18 @@ drawLine(592,812,685,755);
 
 // coords
 // for(let i=0; i<=1000; i++) {
-//   ctx.beginPath();
-//   ctx.strokeStyle = 'gray';
-//   ctx.lineCap = 'round';
-//   ctx.lineWidth = 1;
-//   ctx.moveTo(i, 0);
-//   ctx.lineTo(i, 1000);
-//   ctx.moveTo(0, i);
-//   ctx.lineTo(1000, i);
-//   ctx.stroke();
-//   ctx.closePath();
-//   ctx.font = "20px serif";
-//   ctx.fillText(i, i, 20);
-//   ctx.fillText(i, 5, i);
+//   ctxP.beginPath();
+//   ctxP.strokeStyle = 'gray';
+//   ctxP.lineCap = 'round';
+//   ctxP.lineWidth = 1;
+//   ctxP.moveTo(i, 0);
+//   ctxP.lineTo(i, 1000);
+//   ctxP.moveTo(0, i);
+//   ctxP.lineTo(1000, i);
+//   ctxP.stroke();
+//   ctxP.closePath();
+//   ctxP.font = "20px serif";
+//   ctxP.fillText(i, i, 20);
+//   ctxP.fillText(i, 5, i);
 //   i+=50;
 // }
