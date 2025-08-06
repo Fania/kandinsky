@@ -1,0 +1,62 @@
+$none: rgba(#fff,0);
+$wht: #fff;
+$blk: #000;
+$darkblue: rgb(12,5,40);
+$triangleblue: rgb(26,78,109);
+$trianglered: rgb(129,23,11);
+$brightblue: rgb(16,10,95);
+$goldlight: rgb(223,117,20);
+$goldmid: rgb(191,80,22);
+$golddark: rgb(192,44,16);
+$skin: rgb(227,186,185);
+$brightred: rgb(202,0,14);
+$mocha: rgb(80,70,75);
+$maroon: rgb(123,0,15);
+$teal: rgb(15,35,59);
+$lightteal: rgb(30,70,72);
+$purple: rgb(59,14,81);
+$lilac: rgb(79,73,161);
+$lightblue: rgb(42,79,138);
+$offwhite: rgb(233,187,106);
+$gray: rgb(28,28,45);
+$lightgray: rgb(110,112,135);
+$peach: rgb(176,77,99);
+
+
+:root {
+  color-scheme: only light;
+}
+@media screen {
+  :root {
+    color-scheme: only light;
+  }
+}
+
+html, body, div {
+    height: 100%;
+    margin: 0;
+}
+
+html {
+    font-size: 1vmin;
+}
+
+body {
+    margin: 0;
+    cursor: none;
+}
+
+div {
+    // background: linear-gradient($offwhite, $teal);
+    background: #eef;
+}
+
+body > div {
+    *, *:before, *:after, &:before, &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform-style: preserve-3d;
+    }
+}
