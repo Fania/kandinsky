@@ -1,3 +1,24 @@
+// let p = false;
+// function frame(ts) {
+//   const elapsed = ts - p || 0;
+//   // update(elapsed / 1000);
+//   // draw(ctxP);
+//   draw();
+//   p = ts;
+//   // window.requestAnimationFrame(frame);
+// }
+
+// draw();
+// setup();
+// update();
+
+
+const winWidth = window.innerWidth;
+const winHeight = window.innerHeight;
+console.log(winWidth,winHeight);
+
+
+
 
 const canvasBack = document.getElementById("background");
 const canvasPlay = document.getElementById("playground");
@@ -5,152 +26,240 @@ const canvasFore = document.getElementById("foreground");
 const ctxB = canvasBack.getContext("2d");
 const ctxP = canvasPlay.getContext("2d");
 const ctxF = canvasFore.getContext("2d");
-ctxB.globalCompositeOperation = 'hard-light';
-// ctxB.globalCompositeOperation = 'destination-over';
-// ctxP.globalCompositeOperation = 'color-dodge';
-// ctxP.globalCompositeOperation = 'difference';
-// ctxP.globalCompositeOperation = 'exclusion';
-ctxP.globalCompositeOperation = 'hard-light';
-ctxF.globalCompositeOperation = 'source-over';
+
+// ctxB.width = winWidth;
+
+
+// circle template object
+const Circle = {
+  x: 470, 
+  y: 535, 
+  r: 145, 
+  c: "rgb(255 0 255/ 90%)", 
+  lw: 0, 
+  b: 'transparent', 
+  drawCircle() {
+    ctxP.beginPath();
+    ctxP.fillStyle = this.c;
+    ctxP.strokeStyle = this.b;
+    ctxP.lineWidth = this.lw;
+    ctxP.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
+    ctxP.stroke();
+    ctxP.fill();
+    ctxP.closePath();
+  }
+}
+const Circles = [];
+const circlesRef = [
+  {x: 385, y: 300, r: 105, c: "rgb(224 168 171 / 90%)"},
+  {x: 350, y: 400, r: 56, c: "rgb(106 151 125 / 90%)"},
+  {x: 390, y: 550, r: 115, c: "rgb(251 223 70 / 90%)"},
+  {x: 470, y: 535, r: 145, c: "rgb(63 72 49/ 90%)", lw: 0, b: 'transparent'},
+  {x: 515, y: 350, r: 83, c: "rgb(179 13 28 / 90%)"},
+  {x: 470, y: 460, r: 50, c: "rgb(218 79 40/ 90%)", lw: 15},
+  {x: 470, y: 460, r: 15, c: "rgb(0 0 0 / 90%)"},
+  {x: 360, y: 650, r: 50, c: "rgb(207 52 58 / 90%)"},
+  {x: 275, y: 585, r: 38, c: "rgb(72 153 115/ 90%)", lw: 6},
+  {x: 205, y: 460, r: 25, c: "rgb(222 0 29/ 90%)", lw: 16},
+  {x: 152, y: 575, r: 13, c: "rgb(26 60 118/ 90%)", lw: 6},
+  {x: 215, y: 720, r: 28.5, c: "rgb(217 97 64 / 90%)"},
+  {x: 410, y: 720, r: 8, c: "rgb(37 37 37 / 90%)"},
+  {x: 465, y: 130, r: 10, c: "rgb(192 16 25/ 90%)", lw: 8},
+  {x: 548, y: 815, r: 25, c: "rgb(211 122 114/ 90%)", lw: 4},
+  {x: 596, y: 740, r: 13, c: "rgb(237 175 74 / 90%)"},
+  {x: 680, y: 402, r: 22, c: "rgb(24 27 27 / 90%)"},
+  {x: 610, y: 320, r: 32.5, c: "rgb(24 27 27 / 90%)"},
+  {x: 770, y: 475, r: 45, c: "rgb(13 94 109 / 90%)"},
+  {x: 675, y: 465, r: 117, c: "rgb(63 143 120 / 90%)"},
+  {x: 685, y: 275, r: 60, c: "rgb(150 86 104/ 90%)", lw: 0, b: 'transparent'},
+  {x: 477, y: 698, r: 10, c: "rgb(224 73 70 / 90%)"},
+  {x: 780, y: 720, r: 18.5, c: "rgb(192 77 96 / 90%)"},
+  {x: 630, y: 620, r: 85, c: "rgb(243 212 79 / 90%)"},
+  {x: 680, y: 675, r: 22, c: "rgb(27 30 24 / 90%)"},
+  {x: 510, y: 595, r: 14, c: "rgb(84 16 22 / 90%)"}
+];
 
 
 
-// rays
-ctxB.beginPath();
-ctxB.fillStyle = "rgb(226 183 111 / 90%)";
-ctxB.moveTo(915,10);
-ctxB.lineTo(10,745);
-ctxB.lineTo(10,990);
-ctxB.lineTo(120,990);
-ctxB.lineTo(990,10);
-ctxB.fill();
-ctxB.closePath();
-ctxB.beginPath();
-const linGrad = ctxB.createLinearGradient(290,10, 990,760);
-linGrad.addColorStop(0.5, "rgb(55 143 141 / 90%)");
-linGrad.addColorStop(1, "rgb(146 185 143  / 90%)");
-ctxB.fillStyle = linGrad;
-ctxB.moveTo(194,10);
-ctxB.lineTo(990,985);
-ctxB.lineTo(990,600);
-ctxB.lineTo(350,10);
-ctxB.fill();
-ctxB.closePath();
+// line template object
+const Line = {
+  x: 100, 
+  y: 100, 
+  x2: 500, 
+  y2: 500, 
+  lw: 2, 
+  drawLine() {
+    ctxP.beginPath();
+    ctxP.strokeStyle = 'black';
+    ctxP.lineCap = 'round';
+    ctxP.lineWidth = this.lw ? this.lw : 2;
+    ctxP.moveTo(this.x, this.y);
+    ctxP.lineTo(this.x2, this.y2);
+    ctxP.stroke();
+    ctxP.closePath();
+  }
+}
+const Lines = [];
+const linesRef = [
+  {x: 225, y: 252, x2: 835, y2: 355},
+  {x: 225, y: 252, x2: 835, y2: 355},
+  {x: 300, y: 193, x2: 835, y2: 585},
+  {x: 138, y: 402, x2: 815, y2: 585},
+  {x: 138, y: 420, x2: 815, y2: 610},
+  {x: 120, y: 500, x2: 845, y2: 650},
+  {x: 175, y: 590, x2: 735, y2: 660},
+  {x: 185, y: 545, x2: 687, y2: 805},
+  {x: 170, y: 545, x2: 465, y2: 270},
+  {x: 220, y: 640, x2: 555, y2: 210},
+  {x: 320, y: 810, x2: 710, y2: 165},
+  {x: 253, y: 800, x2: 612, y2: 306, lw: 1},
+  {x: 275, y: 807, x2: 615, y2: 310, lw: 1},
+  {x: 615, y: 825, x2: 720, y2: 205},
+  {x: 600, y: 805, x2: 700, y2: 205, lw: 1},
+  {x: 630, y: 855, x2: 740, y2: 185, lw: 1},
+  {x: 740, y: 732, x2: 737, y2: 320, lw: 4},
+  {x: 510, y: 215, x2: 550, y2: 265},
+  {x: 525, y: 198, x2: 560, y2: 248},
+  {x: 135, y: 455, x2: 180, y2: 380},
+  {x: 145, y: 450, x2: 195, y2: 385},
+  {x: 235, y: 480, x2: 255, y2: 415},
+  {x: 727, y: 357, x2: 770, y2: 357, lw: 3},
+  {x: 727, y: 373, x2: 785, y2: 373, lw: 3},
+  {x: 285, y: 716, x2: 425, y2: 795},
+  {x: 235, y: 765, x2: 435, y2: 730},
+  {x: 578, y: 782, x2: 672, y2: 728},
+  {x: 582, y: 798, x2: 678, y2: 740},
+  {x: 592, y: 812, x2: 685, y2: 755}
+];
+
+
+setup();
+
+function setup() {
+
+  ctxB.globalCompositeOperation = 'hard-light';
+  // ctxB.globalCompositeOperation = 'destination-over';
+  // ctxP.globalCompositeOperation = 'color-dodge';
+  // ctxP.globalCompositeOperation = 'difference';
+  // ctxP.globalCompositeOperation = 'exclusion';
+  ctxP.globalCompositeOperation = 'hard-light';
+  ctxF.globalCompositeOperation = 'source-over';
+
+
+
+  // RAYS
+  ctxB.beginPath();
+  ctxB.fillStyle = "rgb(226 183 111 / 90%)";
+  ctxB.moveTo(915,10);
+  ctxB.lineTo(10,745);
+  ctxB.lineTo(10,990);
+  ctxB.lineTo(120,990);
+  ctxB.lineTo(990,10);
+  ctxB.fill();
+  ctxB.closePath();
+  ctxB.beginPath();
+  const linGrad = ctxB.createLinearGradient(290,10, 990,760);
+  linGrad.addColorStop(0.5, "rgb(55 143 141 / 90%)");
+  linGrad.addColorStop(1, "rgb(146 185 143  / 90%)");
+  ctxB.fillStyle = linGrad;
+  ctxB.moveTo(194,10);
+  ctxB.lineTo(990,985);
+  ctxB.lineTo(990,600);
+  ctxB.lineTo(350,10);
+  ctxB.fill();
+  ctxB.closePath();
+
+
+
+
+  // CIRCLES
+  // create circles instances
+  for(let i=1; i<=26; i++) {
+    let name = `circle${i}`;
+    name = Object.create(Circle);
+    Circles.push(name);
+  }
+  // circle attributes
+  for(let i=0; i<26; i++) {
+    Circles[i].x = circlesRef[i].x;
+    Circles[i].y = circlesRef[i].y;
+    Circles[i].r = circlesRef[i].r;
+    Circles[i].c = circlesRef[i].c;
+    Circles[i].b = circlesRef[i].b != 'transparent' ? 'black' : 'transparent';
+    Circles[i].lw = circlesRef[i].lw;
+    Circles[i].drawCircle();
+  }
+
+
+
+  // RING
+  // create ring and attributes
+  const ring = Object.create(Circle);
+  ring.x = 500; ring.y = 500;
+  ring.r = 450; ring.lw = 50; 
+  ring.c = 'transparent'; ring.b = 'black';
+  ring.drawCircle();
+
+
+
+  // LINES
+  // create lines instances
+  for(let i=1; i<=26; i++) {
+    let name = `lines${i}`;
+    name = Object.create(Line);
+    Lines.push(name);
+  }
+  // line attributes
+  for(let i=0; i<26; i++) {
+    Lines[i].x = linesRef[i].x;
+    Lines[i].y = linesRef[i].y;
+    Lines[i].x2 = linesRef[i].x2;
+    Lines[i].y2 = linesRef[i].y2;
+    Lines[i].lw = linesRef[i].lw;
+    Lines[i].drawLine();
+  }
+
+  // window.requestAnimationFrame(draw);
+  // window.requestAnimationFrame(frame);
+} // SETUP END
 
 
 
 
 
 
-// ctx context
-// x,y position
-// s size of circle
-// f fill colour
-// lw lineWidth default 2
-// b border colour 
-function drawCircle(ctx, x, y, s, f, lw=2, b="black") {
-  ctx.beginPath();
-  ctx.fillStyle = f;
-  ctx.strokeStyle = b;
-  ctx.lineWidth = lw;
-  ctx.arc(x, y, s, 0, Math.PI * 2, true);
-  ctx.stroke();
-  ctx.fill();
-  ctx.closePath();
+function update() {
+  // ctxP.clearRect(0, 0, canvasPlay.width, canvasPlay.height);
+
+  for (let i = 0; i < Circles.length; i++) {
+    const circ = Circles[i];
+    console.log(circ);
+    circ.x
+
+  }
+
+  // window.requestAnimationFrame(draw);
+  // window.requestAnimationFrame(frame);
+  // requestAnimationFrame(animate);
 }
 
 
-drawCircle(ctxP, 385, 300, 105, "rgb(224 168 171 / 90%)");
-drawCircle(ctxP, 350, 400, 56, "rgb(106 151 125 / 90%)");
-drawCircle(ctxP, 390, 550, 115, "rgb(251 223 70 / 90%)");
-drawCircle(ctxP, 470, 535, 145, "rgb(63 72 49/ 90%)", 0, 'transparent');
-drawCircle(ctxP, 515, 350, 83, "rgb(179 13 28 / 90%)");
-drawCircle(ctxP, 470, 460, 50, "rgb(218 79 40/ 90%)", 15);
-drawCircle(ctxP, 470, 460, 15, "rgb(0 0 0 / 90%)");
-drawCircle(ctxP, 360, 650, 50, "rgb(207 52 58 / 90%)");
-drawCircle(ctxP, 275, 585, 38, "rgb(72 153 115/ 90%)", 6);
-drawCircle(ctxP, 205, 460, 25, "rgb(222 0 29/ 90%)", 16);
-drawCircle(ctxP, 152, 575, 13, "rgb(26 60 118/ 90%)", 6);
-drawCircle(ctxP, 215, 720, 28.5, "rgb(217 97 64 / 90%)");
-drawCircle(ctxP, 410, 720, 8, "rgb(37 37 37 / 90%)");
-drawCircle(ctxP, 465, 130, 10, "rgb(192 16 25/ 90%)", 8);
-drawCircle(ctxP, 548, 815, 25, "rgb(211 122 114/ 90%)", 4);
-drawCircle(ctxP, 596, 740, 13, "rgb(237 175 74 / 90%)");
-drawCircle(ctxP, 680, 402, 22, "rgb(24 27 27 / 90%)");
-drawCircle(ctxP, 610, 320, 32.5, "rgb(24 27 27 / 90%)");
-drawCircle(ctxP, 770, 475, 45, "rgb(13 94 109 / 90%)");
-drawCircle(ctxP, 675, 465, 117, "rgb(63 143 120 / 90%)");
-drawCircle(ctxP, 685, 275, 60, "rgb(150 86 104/ 90%)", 0, 'transparent');
-drawCircle(ctxP, 477, 698, 10, "rgb(224 73 70 / 90%)");
-drawCircle(ctxP, 780, 720, 18.5, "rgb(192 77 96 / 90%)");
-drawCircle(ctxP, 630, 620, 85, "rgb(243 212 79 / 90%)");
-drawCircle(ctxP, 680, 675, 22, "rgb(27 30 24 / 90%)");
-drawCircle(ctxP, 510, 595, 14, "rgb(84 16 22 / 90%)");
+update();
 
 
 
 
 
 
-// ring
-drawCircle(ctxF, 500, 500, 450, "transparent", 50, 'black');
 
 
 
-
-
-
-// x,y start pos
-// x2,y2 end pos
-// lw lineWidth default 2
-function drawLine(x, y, x2, y2, lw=2) {
-  ctxP.beginPath();
-  ctxP.strokeStyle = 'black';
-  ctxP.lineCap = 'round';
-  ctxP.lineWidth = lw;
-  ctxP.moveTo(x, y);
-  ctxP.lineTo(x2, y2);
-  ctxP.stroke();
-  ctxP.closePath();
+// The maximum is inclusive and the minimum is inclusive
+function getRandomIntInclusive(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); 
 }
-
-drawLine(225,252,835,355);
-drawLine(300,193,835,585);
-drawLine(138,402,815,585);
-drawLine(138,420,815,610);
-drawLine(120,500,845,650);
-drawLine(175,590,735,660);
-drawLine(185,545,687,805);
-drawLine(170,545,465,270);
-drawLine(220,640,555,210);
-drawLine(320,810,710,165);
-drawLine(253,800,612,306,1);
-drawLine(275,807,615,310,1);
-drawLine(615,825,720,205);
-drawLine(600,805,700,205,1);
-drawLine(630,855,740,185,1);
-drawLine(740,732,737,320,4);
-drawLine(510,215,550,265);
-drawLine(525,198,560,248);
-drawLine(135,455,180,380);
-drawLine(145,450,195,385);
-drawLine(235,480,255,415);
-drawLine(727,357,770,357,3);
-drawLine(727,373,785,373,3);
-drawLine(285,716,425,795);
-drawLine(235,765,435,730);
-drawLine(578,782,672,728);
-drawLine(582,798,678,740);
-drawLine(592,812,685,755);
-
-
-
-
-
-
-
-
-
 
 
 
