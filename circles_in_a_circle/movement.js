@@ -1,12 +1,22 @@
-// let p = false;
-// function frame(ts) {
-//   const elapsed = ts - p || 0;
-//   // update(elapsed / 1000);
-//   // draw(ctxP);
-//   draw();
-//   p = ts;
-//   // window.requestAnimationFrame(frame);
-// }
+const element = document.getElementById("test");
+let start;
+
+function step(timestamp) {
+  if (start === undefined) {
+    start = timestamp;
+  }
+  const elapsed = timestamp - start;
+
+  // Math.min() is used here to make sure the element stops at exactly 200px
+  const shift = Math.min(0.1 * elapsed, 200);
+  element.style.transform = `translateX(${shift}px)`;
+  if (shift < 200) {
+    requestAnimationFrame(step);
+  }
+}
+
+requestAnimationFrame(step);
+
 
 // draw();
 // setup();
@@ -194,11 +204,22 @@ function setup() {
 
   // RING
   // create ring and attributes
-  const ring = Object.create(Circle);
-  ring.x = 500; ring.y = 500;
-  ring.r = 450; ring.lw = 50; 
-  ring.c = 'transparent'; ring.b = 'black';
-  ring.drawCircle();
+  const ring = {
+    x: 500, y: 500,
+    r: 450, lw: 50, 
+    c: 'transparent', b: 'black'
+  }
+  ctxF.beginPath();
+  ctxF.fillStyle = ring.c;
+  ctxF.strokeStyle = ring.b;
+  ctxF.lineWidth = ring.lw;
+  ctxF.arc(ring.x, ring.y, ring.r, 0, Math.PI * 2, true);
+  ctxF.stroke();
+  ctxF.fill();
+  ctxF.closePath();
+
+
+
 
 
 
@@ -228,24 +249,37 @@ function setup() {
 
 
 
-function update() {
-  // ctxP.clearRect(0, 0, canvasPlay.width, canvasPlay.height);
+function update(timestamp) {
+  ctxP.clearRect(0, 0, canvasPlay.width, canvasPlay.height);
+
+  if (start === undefined) {
+    start = timestamp;
+  }
+  const elapsed = timestamp - start;
+
 
   for (let i = 0; i < Circles.length; i++) {
     const circ = Circles[i];
-    console.log(circ);
-    circ.x
-
+    // console.log(circ);
+    circ.x = circ.x + getRandomIntInclusive(0,100);
+    circ.y = circ.y + getRandomIntInclusive(0,100);
+    circ.drawCircle();
+  }
+  
+  // Math.min() is used here to make sure the element stops at random int val
+  const rand = getRandomIntInclusive(0,100);
+  const shift = Math.min(0.1 * elapsed, rand);
+  element.style.transform = `translateX(${shift}px)`;
+  if (shift < rand) {
+    requestAnimationFrame(step);
   }
 
-  // window.requestAnimationFrame(draw);
-  // window.requestAnimationFrame(frame);
-  // requestAnimationFrame(animate);
+
 }
 
 
 update();
-
+// window.requestAnimationFrame(update);
 
 
 
