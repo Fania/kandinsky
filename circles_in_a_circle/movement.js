@@ -1,26 +1,7 @@
-const element = document.getElementById("test");
+// const element = document.getElementById("test");
 let start;
+requestAnimationFrame(setup);
 
-function step(timestamp) {
-  if (start === undefined) {
-    start = timestamp;
-  }
-  const elapsed = timestamp - start;
-
-  // Math.min() is used here to make sure the element stops at exactly 200px
-  const shift = Math.min(0.1 * elapsed, 200);
-  element.style.transform = `translateX(${shift}px)`;
-  if (shift < 200) {
-    requestAnimationFrame(step);
-  }
-}
-
-requestAnimationFrame(step);
-
-
-// draw();
-// setup();
-// update();
 
 
 const winWidth = window.innerWidth;
@@ -143,9 +124,11 @@ const linesRef = [
 ];
 
 
-setup();
 
-function setup() {
+function setup(timestamp) {
+
+  start = timestamp;
+
 
   ctxB.globalCompositeOperation = 'hard-light';
   // ctxB.globalCompositeOperation = 'destination-over';
@@ -240,8 +223,7 @@ function setup() {
     Lines[i].drawLine();
   }
 
-  // window.requestAnimationFrame(draw);
-  // window.requestAnimationFrame(frame);
+  update(timestamp);
 } // SETUP END
 
 
@@ -252,39 +234,44 @@ function setup() {
 function update(timestamp) {
   ctxP.clearRect(0, 0, canvasPlay.width, canvasPlay.height);
 
-  if (start === undefined) {
-    start = timestamp;
-  }
-  const elapsed = timestamp - start;
-
-
+  const speed = Math.random() - 0.5;
+  
   for (let i = 0; i < Circles.length; i++) {
     const circ = Circles[i];
-    // console.log(circ);
-    circ.x = circ.x + getRandomIntInclusive(0,100);
-    circ.y = circ.y + getRandomIntInclusive(0,100);
+    // const newX = getRandomIntInclusive(-10,10);
+    const newX = getRandomIntInclusive(-1,1);
+    // const newY = getRandomIntInclusive(-10,10);
+    const newY = getRandomIntInclusive(-1,1);
+    const sumX = circ.x + newX;
+    // const sumX = circ.x + speed * elapsed;
+    // const sumX = circ.x + newX + speed * elapsed;
+    // const sumX = circ.x + 1;
+    // const sumY = circ.y + speed * elapsed;
+    // const sumY = circ.y + newY + speed * elapsed;
+    const sumY = circ.y + newY;
+    // const sumY = circ.y + 1;
+
+
+    // if(sumX < (winWidth - 100)) {
+    if(sumX < (winWidth / 2)) {
+      console.log('within bounds');
+      circ.x = sumX;
+    } else {
+      console.log('not ok');
+    }
+    // if(sumY < (winHeight - 100)) {
+    if(sumY < (winHeight / 2)) {
+      console.log('within bounds');
+      circ.y = sumY;
+    } else {
+      console.log('not ok');
+    }
     circ.drawCircle();
   }
-  
-  // Math.min() is used here to make sure the element stops at random int val
-  const rand = getRandomIntInclusive(0,100);
-  const shift = Math.min(0.1 * elapsed, rand);
-  element.style.transform = `translateX(${shift}px)`;
-  if (shift < rand) {
-    requestAnimationFrame(step);
-  }
 
-
+  // window.requestAnimationFrame(update);
+  requestAnimationFrame((t) => update(t));
 }
-
-
-update();
-// window.requestAnimationFrame(update);
-
-
-
-
-
 
 
 
