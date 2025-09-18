@@ -88,6 +88,14 @@ const Line = {
     ctxP.lineTo(this.x2, this.y2);
     ctxP.stroke();
     ctxP.closePath();
+  },
+  rotateLine(a) {
+    const halfX = this.x2 - this.x;
+    const halfY = this.y2 - this.y;
+    ctxP.translate(halfX, halfY);
+    // ctxP.rotate(Math.PI / 2);
+    ctxP.rotate(a);
+    ctxP.translate(-halfX, -halfY);
   }
 }
 const Lines = [];
@@ -228,6 +236,37 @@ function setup(timestamp) {
 
 
 
+// ctxP.save();
+
+// ctxP.beginPath();
+// ctxP.strokeStyle = 'red';
+// ctxP.lineCap = 'round';
+// ctxP.lineWidth = 6;
+// ctxP.moveTo(300, 300);
+// ctxP.lineTo(300, 800);
+// ctxP.stroke();
+// // ctxP.closePath();
+
+// // ctxP.beginPath();
+// const halfX = 300 - 300;
+// const halfY = 800 - 300;
+// ctxP.translate(halfX, halfY);
+
+
+
+
+// // ctxP.rotate(Math.PI / 2);
+// ctxP.rotate(45);
+
+// // const halfX = this.x2 - this.x;
+// // const halfY = this.y2 - this.y;
+// ctxP.translate(-halfX, -halfY);
+// ctxP.closePath();
+
+
+// ctxP.restore();
+
+// Lines[0].rotateLine(10);
 
 
 
@@ -276,7 +315,9 @@ function update(timestamp) {
     Lines[i].x2 = linesRef[i].x2;
     Lines[i].y2 = linesRef[i].y2;
     Lines[i].lw = linesRef[i].lw;
+
     Lines[i].drawLine();
+    // Lines[i].rotateLine(30);
   }
 
   // window.requestAnimationFrame(update);

@@ -6,10 +6,9 @@
   --t_c: 45s;
 }
 
-*, *:after {
+/* *, *:after {
   animation: none !important;
-  /* opacity: 0.9; */
-}
+} */
 
 
 main,
