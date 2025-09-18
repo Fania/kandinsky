@@ -1,0 +1,45 @@
+:root {
+  box-sizing: border-box;
+  color-scheme: only light;
+  font-size: 1vmin;
+  --t_l: 10s;
+  --t_c: 45s;
+}
+
+*, *:after {
+  animation: none !important;
+  /* opacity: 0.9; */
+}
+
+
+main,
+canvas {
+  position: relative;
+  isolation: isolate;
+  width: 100vw;
+  max-width: 100vh;
+  height: auto;
+  max-height: 100vh;
+  aspect-ratio: 1;
+  /* overflow: hidden; */
+}
+
+#background,
+#playground,
+#foreground {
+  position: absolute;
+  /* mix-blend-mode: hard-light; */
+}
+#background {
+  border: 1px solid red;
+  height: 100vh;
+  z-index: -1;
+}
+#playground {
+  /* border: 2px solid blue; */
+  z-index: 0;
+}
+#foreground {
+  /* border: 1px dotted yellow; */
+  z-index: 1;
+}
