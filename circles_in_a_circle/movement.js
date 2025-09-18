@@ -214,7 +214,7 @@ function setup(timestamp) {
     Lines.push(name);
   }
   // line attributes
-  for(let i=0; i<26; i++) {
+  for(let i=0; i<Lines.length; i++) {
     Lines[i].x = linesRef[i].x;
     Lines[i].y = linesRef[i].y;
     Lines[i].x2 = linesRef[i].x2;
@@ -267,6 +267,16 @@ function update(timestamp) {
       console.log('not ok');
     }
     circ.drawCircle();
+  }
+
+  // draw Lines with each update
+  for(let i=0; i<Lines.length; i++) {
+    Lines[i].x = linesRef[i].x;
+    Lines[i].y = linesRef[i].y;
+    Lines[i].x2 = linesRef[i].x2;
+    Lines[i].y2 = linesRef[i].y2;
+    Lines[i].lw = linesRef[i].lw;
+    Lines[i].drawLine();
   }
 
   // window.requestAnimationFrame(update);
