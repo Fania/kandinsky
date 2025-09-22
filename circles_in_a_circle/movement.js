@@ -1,105 +1,48 @@
-// const element = document.getElementById("test");
-let start;
-requestAnimationFrame(setup);
+const ctx = canvas.getContext("2d");
+
+// ctx.globalCompositeOperation = 'hard-light';
+// ctx.globalCompositeOperation = 'destination-over';
+// ctx.globalCompositeOperation = 'color-dodge';
+// ctx.globalCompositeOperation = 'difference';
+// ctx.globalCompositeOperation = 'exclusion';
+ctx.globalCompositeOperation = 'hard-light';
+// ctx.globalCompositeOperation = 'source-over';
 
 
 
-const winWidth = window.innerWidth;
-const winHeight = window.innerHeight;
-console.log(winWidth,winHeight);
+let p;
 
-
-
-
-const canvasBack = document.getElementById("background");
-const canvasPlay = document.getElementById("playground");
-const canvasFore = document.getElementById("foreground");
-const ctxB = canvasBack.getContext("2d");
-const ctxP = canvasPlay.getContext("2d");
-const ctxF = canvasFore.getContext("2d");
-
-// ctxB.width = winWidth;
-
-
-// circle template object
-const Circle = {
-  x: 470, 
-  y: 535, 
-  r: 145, 
-  c: "rgb(255 0 255/ 90%)", 
-  lw: 0, 
-  b: 'transparent', 
-  drawCircle() {
-    ctxP.beginPath();
-    ctxP.fillStyle = this.c;
-    ctxP.strokeStyle = this.b;
-    ctxP.lineWidth = this.lw;
-    ctxP.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
-    ctxP.stroke();
-    ctxP.fill();
-    ctxP.closePath();
-  }
-}
-const Circles = [];
-const circlesRef = [
-  {x: 385, y: 300, r: 105, c: "rgb(224 168 171 / 90%)"},
-  {x: 350, y: 400, r: 56, c: "rgb(106 151 125 / 90%)"},
-  {x: 390, y: 550, r: 115, c: "rgb(251 223 70 / 90%)"},
-  {x: 470, y: 535, r: 145, c: "rgb(63 72 49/ 90%)", lw: 0, b: 'transparent'},
-  {x: 515, y: 350, r: 83, c: "rgb(179 13 28 / 90%)"},
-  {x: 470, y: 460, r: 50, c: "rgb(218 79 40/ 90%)", lw: 15},
-  {x: 470, y: 460, r: 15, c: "rgb(0 0 0 / 90%)"},
-  {x: 360, y: 650, r: 50, c: "rgb(207 52 58 / 90%)"},
-  {x: 275, y: 585, r: 38, c: "rgb(72 153 115/ 90%)", lw: 6},
-  {x: 205, y: 460, r: 25, c: "rgb(222 0 29/ 90%)", lw: 16},
-  {x: 152, y: 575, r: 13, c: "rgb(26 60 118/ 90%)", lw: 6},
-  {x: 215, y: 720, r: 28.5, c: "rgb(217 97 64 / 90%)"},
-  {x: 410, y: 720, r: 8, c: "rgb(37 37 37 / 90%)"},
-  {x: 465, y: 130, r: 10, c: "rgb(192 16 25/ 90%)", lw: 8},
-  {x: 548, y: 815, r: 25, c: "rgb(211 122 114/ 90%)", lw: 4},
-  {x: 596, y: 740, r: 13, c: "rgb(237 175 74 / 90%)"},
-  {x: 680, y: 402, r: 22, c: "rgb(24 27 27 / 90%)"},
-  {x: 610, y: 320, r: 32.5, c: "rgb(24 27 27 / 90%)"},
-  {x: 770, y: 475, r: 45, c: "rgb(13 94 109 / 90%)"},
-  {x: 675, y: 465, r: 117, c: "rgb(63 143 120 / 90%)"},
-  {x: 685, y: 275, r: 60, c: "rgb(150 86 104/ 90%)", lw: 0, b: 'transparent'},
-  {x: 477, y: 698, r: 10, c: "rgb(224 73 70 / 90%)"},
-  {x: 780, y: 720, r: 18.5, c: "rgb(192 77 96 / 90%)"},
-  {x: 630, y: 620, r: 85, c: "rgb(243 212 79 / 90%)"},
-  {x: 680, y: 675, r: 22, c: "rgb(27 30 24 / 90%)"},
-  {x: 510, y: 595, r: 14, c: "rgb(84 16 22 / 90%)"}
+const circles = [
+  {x: 385, y: 300, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 105, c: "rgb(224 168 171 / 90%)"},
+  {x: 350, y: 400, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 56, c: "rgb(106 151 125 / 90%)"},
+  {x: 390, y: 550, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 115, c: "rgb(251 223 70 / 90%)"},
+  {x: 470, y: 535, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 145, c: "rgb(63 72 49/ 90%)", lw: 0, b: 'transparent'},
+  {x: 515, y: 350, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 83, c: "rgb(179 13 28 / 90%)"},
+  {x: 470, y: 460, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 50, c: "rgb(218 79 40/ 90%)", lw: 15},
+  {x: 470, y: 460, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 15, c: "rgb(0 0 0 / 90%)"},
+  {x: 360, y: 650, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 50, c: "rgb(207 52 58 / 90%)"},
+  {x: 275, y: 585, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 38, c: "rgb(72 153 115/ 90%)", lw: 6},
+  {x: 205, y: 460, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 25, c: "rgb(222 0 29/ 90%)", lw: 16},
+  {x: 152, y: 575, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 13, c: "rgb(26 60 118/ 90%)", lw: 6},
+  {x: 215, y: 720, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 28.5, c: "rgb(217 97 64 / 90%)"},
+  {x: 410, y: 720, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 8, c: "rgb(37 37 37 / 90%)"},
+  {x: 465, y: 130, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 10, c: "rgb(192 16 25/ 90%)", lw: 8},
+  {x: 548, y: 815, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 25, c: "rgb(211 122 114/ 90%)", lw: 4},
+  {x: 596, y: 740, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 13, c: "rgb(237 175 74 / 90%)"},
+  {x: 680, y: 402, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 22, c: "rgb(24 27 27 / 90%)"},
+  {x: 610, y: 320, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 32.5, c: "rgb(24 27 27 / 90%)"},
+  {x: 770, y: 475, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 45, c: "rgb(13 94 109 / 90%)"},
+  {x: 675, y: 465, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 117, c: "rgb(63 143 120 / 90%)"},
+  {x: 685, y: 275, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 60, c: "rgb(150 86 104/ 90%)", lw: 0, b: 'transparent'},
+  {x: 477, y: 698, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 10, c: "rgb(224 73 70 / 90%)"},
+  {x: 780, y: 720, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 18.5, c: "rgb(192 77 96 / 90%)"},
+  {x: 630, y: 620, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 85, c: "rgb(243 212 79 / 90%)"},
+  {x: 680, y: 675, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 22, c: "rgb(27 30 24 / 90%)"},
+  {x: 510, y: 595, s: -canvas.width + Math.random() * 2 * canvas.width, a: Math.random() * 2 * Math.PI, rr: 0, r: 14, c: "rgb(84 16 22 / 90%)"}
 ];
 
 
-
-// line template object
-const Line = {
-  x: 100, 
-  y: 100, 
-  x2: 500, 
-  y2: 500, 
-  lw: 2, 
-  drawLine() {
-    ctxP.beginPath();
-    ctxP.strokeStyle = 'black';
-    ctxP.lineCap = 'round';
-    ctxP.lineWidth = this.lw ? this.lw : 2;
-    ctxP.moveTo(this.x, this.y);
-    ctxP.lineTo(this.x2, this.y2);
-    ctxP.stroke();
-    ctxP.closePath();
-  },
-  rotateLine(a) {
-    const halfX = this.x2 - this.x;
-    const halfY = this.y2 - this.y;
-    ctxP.translate(halfX, halfY);
-    // ctxP.rotate(Math.PI / 2);
-    ctxP.rotate(a);
-    ctxP.translate(-halfX, -halfY);
-  }
-}
-const Lines = [];
-const linesRef = [
+const lines = [
   {x: 225, y: 252, x2: 835, y2: 355},
   {x: 225, y: 252, x2: 835, y2: 355},
   {x: 300, y: 193, x2: 835, y2: 585},
@@ -132,223 +75,141 @@ const linesRef = [
 ];
 
 
+function update(elapsed) {
+  circles.forEach(circle => {
 
-function setup(timestamp) {
+    const xS = xSpeed(circle);
+    const yS = ySpeed(circle);
 
-  start = timestamp;
+    circle.rr += (Math.random() - 1);
+    circle.rr = Math.max(circle.rr, -2 * Math.PI);
+    circle.rr = Math.max(circle.rr, 2 * Math.PI);
+
+    circle.a += circle.rr * elapsed;
+    // ctx.filter = `hue-rotate(${getRandomInt(360)}deg)`;
+
+    circle.x += xS * elapsed;
+    circle.y += yS * elapsed;
+
+    // boundaries
+    if (circle.x > canvas.width) {
+      circle.x = 0;
+    } else if (circle.x < 0) {
+      circle.x = canvas.width;
+    }
+    if (circle.y > canvas.height) {
+      circle.y = 0;
+    } else if (circle.y < 0) {
+      circle.y = canvas.height;
+    }
+
+  });
+}
 
 
-  ctxB.globalCompositeOperation = 'hard-light';
-  // ctxB.globalCompositeOperation = 'destination-over';
-  // ctxP.globalCompositeOperation = 'color-dodge';
-  // ctxP.globalCompositeOperation = 'difference';
-  // ctxP.globalCompositeOperation = 'exclusion';
-  ctxP.globalCompositeOperation = 'hard-light';
-  ctxF.globalCompositeOperation = 'source-over';
 
-
+function draw() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
 
   // RAYS
-  ctxB.beginPath();
-  ctxB.fillStyle = "rgb(226 183 111 / 90%)";
-  ctxB.moveTo(915,10);
-  ctxB.lineTo(10,745);
-  ctxB.lineTo(10,990);
-  ctxB.lineTo(120,990);
-  ctxB.lineTo(990,10);
-  ctxB.fill();
-  ctxB.closePath();
-  ctxB.beginPath();
-  const linGrad = ctxB.createLinearGradient(290,10, 990,760);
-  linGrad.addColorStop(0.5, "rgb(55 143 141 / 90%)");
-  linGrad.addColorStop(1, "rgb(146 185 143  / 90%)");
-  ctxB.fillStyle = linGrad;
-  ctxB.moveTo(194,10);
-  ctxB.lineTo(990,985);
-  ctxB.lineTo(990,600);
-  ctxB.lineTo(350,10);
-  ctxB.fill();
-  ctxB.closePath();
-
-
-
-
-  // CIRCLES
-  // create circles instances
-  for(let i=1; i<=26; i++) {
-    let name = `circle${i}`;
-    name = Object.create(Circle);
-    Circles.push(name);
-  }
-  // circle attributes
-  for(let i=0; i<26; i++) {
-    Circles[i].x = circlesRef[i].x;
-    Circles[i].y = circlesRef[i].y;
-    Circles[i].r = circlesRef[i].r;
-    Circles[i].c = circlesRef[i].c;
-    Circles[i].b = circlesRef[i].b != 'transparent' ? 'black' : 'transparent';
-    Circles[i].lw = circlesRef[i].lw;
-    Circles[i].drawCircle();
-  }
-
-
+  ctx.save();
+  ctx.beginPath();
+  const linGrad = ctx.createLinearGradient(880,0, 0,900);
+  linGrad.addColorStop(0.5, "rgb(210 170 100 / 90%)");
+  linGrad.addColorStop(1, "rgb(240 200 130 / 90%)");
+  ctx.fillStyle = linGrad;
+  ctx.moveTo(915,0);
+  ctx.lineTo(0,745);
+  ctx.lineTo(0,1000);
+  ctx.lineTo(120,1000);
+  ctx.lineTo(1000,0);
+  ctx.fill();
+  ctx.closePath();
+  ctx.beginPath();
+  const linGrad2 = ctx.createLinearGradient(290,0, 1000,760);
+  linGrad2.addColorStop(0.5, "rgb(55 143 141 / 90%)");
+  linGrad2.addColorStop(1, "rgb(146 185 143  / 90%)");
+  ctx.fillStyle = linGrad2;
+  ctx.moveTo(194,0);
+  ctx.lineTo(1000,985);
+  ctx.lineTo(1000,600);
+  ctx.lineTo(350,0);
+  ctx.fill();
+  ctx.closePath();
+  ctx.restore();
 
   // RING
-  // create ring and attributes
-  const ring = {
-    x: 500, y: 500,
-    r: 450, lw: 50, 
-    c: 'transparent', b: 'black'
-  }
-  ctxF.beginPath();
-  ctxF.fillStyle = ring.c;
-  ctxF.strokeStyle = ring.b;
-  ctxF.lineWidth = ring.lw;
-  ctxF.arc(ring.x, ring.y, ring.r, 0, Math.PI * 2, true);
-  ctxF.stroke();
-  ctxF.fill();
-  ctxF.closePath();
+  ctx.save();
+  ctx.beginPath();
+  ctx.fillStyle = 'transparent';
+  ctx.strokeStyle = 'black';
+  ctx.lineWidth = 50;
+  ctx.arc(500, 500, 450, 0, Math.PI * 2, true);
+  ctx.stroke();
+  ctx.fill();
+  ctx.closePath();
+  ctx.restore();
 
-
-
-
-
+  // CIRCLES
+  circles.forEach(circle => {
+    ctx.save();
+    ctx.beginPath();
+    ctx.fillStyle = circle.c; 
+    ctx.strokeStyle = circle.b;
+    ctx.lineWidth = circle.lw;
+    ctx.arc(circle.x, circle.y, circle.r, 0, Math.PI * 2, true);
+    ctx.stroke();
+    ctx.fill();
+    ctx.closePath();
+    ctx.restore();
+  });
 
   // LINES
-  // create lines instances
-  for(let i=1; i<=26; i++) {
-    let name = `lines${i}`;
-    name = Object.create(Line);
-    Lines.push(name);
-  }
-  // line attributes
-  for(let i=0; i<Lines.length; i++) {
-    Lines[i].x = linesRef[i].x;
-    Lines[i].y = linesRef[i].y;
-    Lines[i].x2 = linesRef[i].x2;
-    Lines[i].y2 = linesRef[i].y2;
-    Lines[i].lw = linesRef[i].lw;
-    Lines[i].drawLine();
-  }
+  lines.forEach(line => {
+    ctx.save();
+    ctx.beginPath();
+    ctx.strokeStyle = 'black';
+    ctx.lineCap = 'round';
+    ctx.lineWidth = line.lw ? line.lw : 2;
+    ctx.moveTo(line.x, line.y);
+    ctx.lineTo(line.x2, line.y2);
+    ctx.stroke();
+    ctx.closePath();
+    ctx.restore();
+  });
 
-  update(timestamp);
-} // SETUP END
+}
 
 
+function frame(ts) {
 
-// ctxP.save();
+  const elapsed = (ts - p) / 4000 || 0;
+  p = ts;
+  update(elapsed);
+  draw(ctx);
+  requestAnimationFrame(frame);
 
-// ctxP.beginPath();
-// ctxP.strokeStyle = 'red';
-// ctxP.lineCap = 'round';
-// ctxP.lineWidth = 6;
-// ctxP.moveTo(300, 300);
-// ctxP.lineTo(300, 800);
-// ctxP.stroke();
-// // ctxP.closePath();
+}
 
-// // ctxP.beginPath();
-// const halfX = 300 - 300;
-// const halfY = 800 - 300;
-// ctxP.translate(halfX, halfY);
+
+requestAnimationFrame(frame);
 
 
 
 
-// // ctxP.rotate(Math.PI / 2);
-// ctxP.rotate(45);
-
-// // const halfX = this.x2 - this.x;
-// // const halfY = this.y2 - this.y;
-// ctxP.translate(-halfX, -halfY);
-// ctxP.closePath();
-
-
-// ctxP.restore();
-
-// Lines[0].rotateLine(10);
 
 
 
-function update(timestamp) {
-  ctxP.clearRect(0, 0, canvasPlay.width, canvasPlay.height);
-
-  const speed = Math.random() - 0.5;
-  
-  for (let i = 0; i < Circles.length; i++) {
-    const circ = Circles[i];
-    // const newX = getRandomIntInclusive(-10,10);
-    const newX = getRandomIntInclusive(-1,1);
-    // const newY = getRandomIntInclusive(-10,10);
-    const newY = getRandomIntInclusive(-1,1);
-    const sumX = circ.x + newX;
-    // const sumX = circ.x + speed * elapsed;
-    // const sumX = circ.x + newX + speed * elapsed;
-    // const sumX = circ.x + 1;
-    // const sumY = circ.y + speed * elapsed;
-    // const sumY = circ.y + newY + speed * elapsed;
-    const sumY = circ.y + newY;
-    // const sumY = circ.y + 1;
-
-
-    // if(sumX < (winWidth - 100)) {
-    if(sumX < (winWidth / 2)) {
-      console.log('within bounds');
-      circ.x = sumX;
-    } else {
-      console.log('not ok');
-    }
-    // if(sumY < (winHeight - 100)) {
-    if(sumY < (winHeight / 2)) {
-      console.log('within bounds');
-      circ.y = sumY;
-    } else {
-      console.log('not ok');
-    }
-    circ.drawCircle();
-  }
-
-  // draw Lines with each update
-  for(let i=0; i<Lines.length; i++) {
-    Lines[i].x = linesRef[i].x;
-    Lines[i].y = linesRef[i].y;
-    Lines[i].x2 = linesRef[i].x2;
-    Lines[i].y2 = linesRef[i].y2;
-    Lines[i].lw = linesRef[i].lw;
-
-    Lines[i].drawLine();
-    // Lines[i].rotateLine(30);
-  }
-
-  // window.requestAnimationFrame(update);
-  requestAnimationFrame((t) => update(t));
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
 }
 
 
 
-// The maximum is inclusive and the minimum is inclusive
-function getRandomIntInclusive(min, max) {
-  const minCeiled = Math.ceil(min);
-  const maxFloored = Math.floor(max);
-  return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); 
+function xSpeed(circle) {
+  return Math.cos(circle.a) * circle.s / 5;
 }
 
-
-
-// coords
-// for(let i=0; i<=1000; i++) {
-//   ctxP.beginPath();
-//   ctxP.strokeStyle = 'gray';
-//   ctxP.lineCap = 'round';
-//   ctxP.lineWidth = 1;
-//   ctxP.moveTo(i, 0);
-//   ctxP.lineTo(i, 1000);
-//   ctxP.moveTo(0, i);
-//   ctxP.lineTo(1000, i);
-//   ctxP.stroke();
-//   ctxP.closePath();
-//   ctxP.font = "20px serif";
-//   ctxP.fillText(i, i, 20);
-//   ctxP.fillText(i, 5, i);
-//   i+=50;
-// }
+function ySpeed(circle) {
+  return Math.sin(circle.a) * circle.s / 5;
+}
