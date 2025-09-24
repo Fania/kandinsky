@@ -25,13 +25,6 @@ body {
   flex-direction: column;
   justify-content: space-around;
 }
-li h2 {
-  margin: 0;
-}
-li h2 img {
-  width: 100px;
-  display: none;
-}
 
 ul {
   padding: 0;
@@ -44,14 +37,22 @@ li {
   container-type: inline-size;
 }
 
-li p {
+li a {
+  margin: 0;
+}
+li img {
+  width: 100%;
+  aspect-ratio: 1;
+  height: auto;
+  object-fit: contain;
+  /* display: none; */
+}
+li h2, li p {
   display: none;
 }
 
+li.active-item h2,
 li.active-item p {
-  display: block;
-}
-li.active-item h2 img {
   display: block;
 }
 
@@ -76,6 +77,9 @@ li:nth-child(3) {
 a {
   text-decoration: none;
   color: rgb(0 0 255 / 0.8);
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 a:hover,
@@ -110,7 +114,7 @@ ul {
 }
 
 article {
-  background: #b4b2d3;
+  background: #dee2ff;
   flex: 1;
 }
 
@@ -144,22 +148,30 @@ html::view-transition-new(*) {
   
 
 <main class="match-element-applied">
+
   <ul>
     <li>
-      <h2><img src="https://kandinsky.fania.uk/circles_in_a_circle/imgs/favicons/favicon.svg" alt="favicon"><a href="/circles_in_a_circle">Circles in a circle</a></h2>
+      <a href="/circles_in_a_circle"><img src="/circles_in_a_circle/imgs/screenshot.jpeg" alt="Circles in a circle"></a>
+      <h2>Circles in a circle</h2>
       <p>An experiment with circles.</p>
     </li>
     <li>
-      <h2><img src="https://kandinsky.fania.uk/boat/imgs/favicons/favicon.svg" alt="favicon"><a href="/improvisation_29">Boat</a></h2>
+      <a href="/improvisation_29"><img src="/improvisation_29/kandinsky.jpeg" alt="Boat"></a>
+      <h2>Boat</h2>
       <p>Created as part of a residency with the New Media Art Club in Leicester and exhibited at the Phoenix Gallery from 11 April to 25 July 2025.</p>
     </li>
     <li>
-      <h2><img src="https://kandinsky.fania.uk/circles/imgs/favicons/favicon.svg" alt="favicon"><a href="/several_circles">Several Circles</a></h2>
+      <a href="/several_circles"><img src="/several_circles/original.jpeg" alt="Several Circles"></a>
+      <h2>Several Circles</h2>
       <p>An experiment with artistic but aesthetic orbits.</p>
     </li>
   </ul>
+
+
   <article>test</article>
+
 </main>
+
 <form>
   <label for="match-element-checkbox">
     Apply <code>match-element</code> to list items?
@@ -170,15 +182,21 @@ html::view-transition-new(*) {
 
 
 <script>
+
+console.log('test');
+
 const mainElem = document.querySelector("main");
 let prevElem;
 let checkboxElem = document.querySelector("input");
 
 // View transition code
 function updateActiveItem(event) {
+  console.log('inside updateActiveItem');
+  console.log(event);
   // Get the list item that contains the clicked link
-  const clickedElem = event.target.parentElement.parentElement;
-
+  // const clickedElem = event.target.parentElement.parentElement;
+  const clickedElem = event.target.parentElement;
+  console.log(clickedElem);
   // Set the active-item class on the list item
   clickedElem.className = "active-item";
 
@@ -198,6 +216,7 @@ function updateActiveItem(event) {
 
 mainElem.addEventListener("click", (event) => {
   event.preventDefault(); // Prevent iframe from scrolling when clicked
+  // updateActiveItem(event);
   // Do nothing unless a link is clicked inside the <main> element
   if (event.target.tagName !== "A") {
     return;
