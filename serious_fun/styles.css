@@ -1,5 +1,9 @@
 body {
   margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background: rgb(36, 31, 35);
 }
 
 img {
@@ -11,12 +15,12 @@ img {
 }
 
 svg {
-  /* width: 100%; */
-  /* height: auto; */
-  position: absolute;
-  top: 0; bottom: 0; left: 0; right: 0;
+  width: 100%;
+  height: auto;
+  /* position: absolute; */
+  /* top: 0; bottom: 0; left: 0; right: 0; */
   opacity: 1;
-  background: rgb(206, 201, 151);
+  /* background: rgb(206, 201, 151); */
 }
 
 svg text {

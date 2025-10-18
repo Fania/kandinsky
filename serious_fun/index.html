@@ -22,6 +22,16 @@
           <stop offset="100%" stop-color="rgb(124 68 100)"/>
         </radialGradient>
 
+        <pattern id="background" viewBox="0,0,100,100" 
+        width="7%" height="10%" patternTransform="rotate(70)">
+          <rect width="100%" height="100%" fill="rgb(226, 221, 171)"/>
+          <circle cx="40" cy="40" r="50" fill="rgb(216, 211, 161)"/>
+          <circle cx="60" cy="70" r="30" fill="rgb(210, 205, 160)"/>
+        </pattern>
+        <filter id="blur">
+          <feGaussianBlur stdDeviation="30 30" in="SourceGraphic"/>
+        </filter>
+
         <pattern id="circles" viewBox="0,0,100,100" width="20%" height="17%">
           <rect x="0" y="0" width="100" height="100" fill="rgb(90, 76, 93)"/>
           <circle cx="50" cy="50" r="40" fill="rgb(31, 29, 71)"/>
@@ -41,7 +51,10 @@
         </linearGradient>
       </defs>
 
+
       <g id="fun_colour_blocks">
+        <rect x="0" y="0" width="2137" height="1490" fill="url(#background)" filter="url(#blur)"></rect>
+        
         <rect id="rect_01" x="235" y="628" width="23" height="22" fill="rgb(142 22 36)"></rect>
 
         <circle id="circle_01" r="92" cx="533" cy="482" fill="url(#circle_fade)" stroke="rgb(0 0 0)" stroke-width="2"/>
@@ -72,22 +85,25 @@
 
         <polygon id="polygon_08" points="610,1104 610,1183 699,1183 646,1104" fill="rgb(137 70 93)" stroke="rgb(138 31 26)" stroke-width="4"/>
 
-        <rect id="rect_10" x="591" y="1009" width="78" height="9" fill="rgb(14 24 49)" stroke="rgb(0 0 0)" stroke-width="2"></rect>
-        <rect id="rect_11" x="591" y="1018" width="78" height="14" fill="rgb(99 48 57)" stroke="rgb(0 0 0)" stroke-width="2"></rect>
-        <rect id="rect_12" x="591" y="1032" width="78" height="16" fill="rgb(183 180 27)" stroke="rgb(0 0 0)" stroke-width="2"></rect>
-        <rect id="rect_13" x="591" y="1048" width="78" height="23" fill="rgb(0 119 101)" stroke="rgb(0 0 0)" stroke-width="2"></rect>
-        <rect id="rect_14" x="591" y="1071" width="78" height="35" fill="rgb(144 60 40)" stroke="rgb(0 0 0)" stroke-width="2"></rect>
-
+        <g id="shape_03">
+          <rect id="rect_10" x="591" y="1009" width="78" height="9" fill="rgb(14 24 49)" stroke="rgb(0 0 0)" stroke-width="2"></rect>
+          <rect id="rect_11" x="591" y="1018" width="78" height="14" fill="rgb(99 48 57)" stroke="rgb(0 0 0)" stroke-width="2"></rect>
+          <rect id="rect_12" x="591" y="1032" width="78" height="16" fill="rgb(183 180 27)" stroke="rgb(0 0 0)" stroke-width="2"></rect>
+          <rect id="rect_13" x="591" y="1048" width="78" height="23" fill="rgb(0 119 101)" stroke="rgb(0 0 0)" stroke-width="2"></rect>
+          <rect id="rect_14" x="591" y="1071" width="78" height="35" fill="rgb(144 60 40)" stroke="rgb(0 0 0)" stroke-width="2"></rect>
+        </g>
 
         <line id="line_01" x1="728" y1="937" x2="776" y2="938" stroke="rgb(34 22 26)" stroke-width="3"/>
         <line id="line_02" x1="728" y1="955" x2="791" y2="957" stroke="rgb(34 22 26)" stroke-width="3"/>
 
         <rect id="rect_15" x="668" y="909" width="61" height="98" fill="rgb(166 114 113)" stroke="rgb(138 31 26)" stroke-width="2"></rect>
 
-        <circle id="circle_03" r="36" cx="658" cy="863" fill="rgb(117 14 22)" stroke="rgb(0 0 0)" stroke-width="2"></circle>
-        <path id="path_01" d="M 633,838 A 28 18 0 0 1 685,842 L 658,860 Z" fill="rgb(186 173 44)"/>
-        <path id="path_02" d="M 659,862 L 691,850 Q 700,886 663,898 Z" fill="rgb(47 76 38)"/>
-        <path id="path_03" d="M 627,846 L 657,862 653,898 Q 613,885 627,846" fill="rgb(155 105 87)"/>
+        <g id="shape_04">
+          <circle id="circle_03" r="36" cx="658" cy="863" fill="rgb(117 14 22)" stroke="rgb(0 0 0)" stroke-width="2"></circle>
+          <path id="path_01" d="M 633,838 A 28 18 0 0 1 685,842 L 658,860 Z" fill="rgb(186 173 44)"/>
+          <path id="path_02" d="M 659,862 L 691,850 Q 700,886 663,898 Z" fill="rgb(47 76 38)"/>
+          <path id="path_03" d="M 627,846 L 657,862 653,898 Q 613,885 627,846" fill="rgb(155 105 87)"/>
+        </g>
 
         <path id="path_04" d="M 717,805 Q 781,809 810,751" fill="none" stroke="rgb(95 31 23)" stroke-width="4"/>
         <path id="path_05" d="M 719,773 Q 777,771 785,724" fill="none" stroke="rgb(95 31 23)" stroke-width="4"/>
@@ -103,8 +119,10 @@
         <line id="line_08" x1="771" y1="1129" x2="913" y2="1129" stroke="rgb(143 105 72)" stroke-width="4"/>
         <line id="line_09" x1="771" y1="1118" x2="913" y2="1118" stroke="rgb(96 88 55)" stroke-width="4"/>
 
-        <polygon id="polygon_10" points="898,1032 941,1032 920,1181" fill="rgb(0 65 47)" stroke="rgb(0 0 0)" stroke-width="2"/>
-        <polygon id="polygon_11" points="899,1033 939,1033 937,1050 902,1050" fill="rgb(24 48 111)"/>
+        <g id="shape_05">
+          <polygon id="polygon_10" points="898,1032 941,1032 920,1181" fill="rgb(0 65 47)" stroke="rgb(0 0 0)" stroke-width="2"/>
+          <polygon id="polygon_11" points="899,1033 939,1033 937,1050 902,1050" fill="rgb(24 48 111)"/>
+        </g>
 
         <circle id="circle_04" r="14" cx="945" cy="999" fill="rgb(194 30 28)" stroke="rgb(0 0 0)" stroke-width="2"></circle>
 
@@ -187,14 +205,16 @@
 
         <polygon id="polygon_14" points="1126,681 1184,681 1162,849" fill="rgb(121, 55, 71)" stroke="rgb(0, 0, 0)" stroke-width="2"/>
 
-        <path id="path_06" d="M 1156,650 L 1222,714 A 50 51 0 1 0 1156,650" fill="rgb(157, 53, 31)"/>
-        <path id="path_07" d="M 1186,680 L 1222,714 1236,705 1198,670 Z" fill="rgb(200, 97, 74)"/>
-        <path id="path_08" d="M 1199,669 L 1238,702 Q 1246,695 1250,684 L 1215,655 Z" fill="rgb(0, 140, 122)"/>
-        <path id="path_09" d="M 1222,649 L 1253,672 Q 1256,649 1240,632 Z" fill="rgb(199, 189, 49)"/>
-        <path id="path_10" d="M 1185,679 L 1238,631 Q 1231,621 1216,618 L 1184,679 Z" fill="rgb(211, 143, 72)"/>
-        <path id="path_11" d="M 1196,654 L 1214,618 Q 1186,613 1168,631 Z" fill="rgb(156, 29, 32)"/>
-        <path id="path_12" d="M 1156,650 L 1184,678 1196,655 1167,631 Z" fill="url(#circles)"/>
-        <path id="path_13" d="M 1156,650 L 1222,714 A 50 51 0 1 0 1156,651" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+        <g id="shape_06">
+          <path id="path_06" d="M 1156,650 L 1222,714 A 50 51 0 1 0 1156,650" fill="rgb(157, 53, 31)"/>
+          <path id="path_07" d="M 1186,680 L 1222,714 1236,705 1198,670 Z" fill="rgb(200, 97, 74)"/>
+          <path id="path_08" d="M 1199,669 L 1238,702 Q 1246,695 1250,684 L 1215,655 Z" fill="rgb(0, 140, 122)"/>
+          <path id="path_09" d="M 1222,649 L 1253,672 Q 1256,649 1240,632 Z" fill="rgb(199, 189, 49)"/>
+          <path id="path_10" d="M 1185,679 L 1238,631 Q 1231,621 1216,618 L 1184,679 Z" fill="rgb(211, 143, 72)"/>
+          <path id="path_11" d="M 1196,654 L 1214,618 Q 1186,613 1168,631 Z" fill="rgb(156, 29, 32)"/>
+          <path id="path_12" d="M 1156,650 L 1184,678 1196,655 1167,631 Z" fill="url(#circles)"/>
+          <path id="path_13" d="M 1156,650 L 1222,714 A 50 51 0 1 0 1156,651" fill="none" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+        </g>
 
         <line id="line_50" x1="1275" y1="739" x2="1312" y2="740" stroke="rgb(44, 64, 36)" stroke-width="2"/>
         <line id="line_51" x1="1272" y1="731" x2="1314" y2="731" stroke="rgb(44, 64, 36)" stroke-width="3"/>
@@ -219,54 +239,58 @@
         <line id="line_57" x1="1365" y1="569" x2="1438" y2="508" stroke="rgb(116, 61, 30)" stroke-width="4"/>
         <line id="line_58" x1="1378" y1="578" x2="1445" y2="521" stroke="rgb(116, 61, 30)" stroke-width="4"/>
 
-        <rect id="line_14" x="1417" y="1149" width="50" height="35" fill="rgb(219, 217, 94)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
-        <rect id="line_15" x="1467" y="1149" width="64" height="35" fill="rgb(186, 78, 68)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
-        <rect id="line_16" x="1531" y="1149" width="9" height="35" fill="rgb(40, 52, 114)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+        <g id="shape_07">
+          <rect id="line_14" x="1417" y="1149" width="50" height="35" fill="rgb(219, 217, 94)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+          <rect id="line_15" x="1467" y="1149" width="64" height="35" fill="rgb(186, 78, 68)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+          <rect id="line_16" x="1531" y="1149" width="9" height="35" fill="rgb(40, 52, 114)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+        </g>
 
         <rect id="line_17" x="1379" y="1122" width="206" height="27" fill="rgb(104, 47, 56)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
 
-        <polygon id="polygon_15" points="1462,773 1481,774 1471,1093" fill="rgb(30, 88, 83)"/>
-        <polygon id="polygon_16" points="1478,849 1490,849 1471,1093" fill="rgb(144, 42, 45)"/>
-        <polygon id="polygon_17" points="1456,574 1485,575 1481,772 1463,770" fill="rgb(183, 172, 39)"/>
-        <polygon id="polygon_18" points="1484,648 1506,648 1490,848 1478,848" fill="rgb(11, 35, 64)"/>
-        <polygon id="polygon_19" points="1454,505 1487,506 1486,573 1456,572" fill="rgb(0, 98, 75)"/>
-        <polygon id="polygon_20" points="1487,506 1517,506 1506,647 1484,646" fill="rgb(140, 28, 32)"/>
+        <g id="shape_08">
+          <polygon id="polygon_15" points="1462,773 1481,774 1471,1093" fill="rgb(30, 88, 83)"/>
+          <polygon id="polygon_16" points="1478,849 1490,849 1471,1093" fill="rgb(144, 42, 45)"/>
+          <polygon id="polygon_17" points="1456,574 1485,575 1481,772 1463,770" fill="rgb(183, 172, 39)"/>
+          <polygon id="polygon_18" points="1484,648 1506,648 1490,848 1478,848" fill="rgb(11, 35, 64)"/>
+          <polygon id="polygon_19" points="1454,505 1487,506 1486,573 1456,572" fill="rgb(0, 98, 75)"/>
+          <polygon id="polygon_20" points="1487,506 1517,506 1506,647 1484,646" fill="rgb(140, 28, 32)"/>
+          <polygon id="polygon_21" points="1453,504 1518,505 1471,1099" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+          <line id="line_59" x1="1478" y1="848" x2="1491" y2="849" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+          <line id="line_60" x1="1461" y1="772" x2="1481" y2="773" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+          <line id="line_61" x1="1455" y1="573" x2="1486" y2="574" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+          <line id="line_62" x1="1484" y1="647" x2="1507" y2="648" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+        </g>
 
-        <polygon id="polygon_21" points="1453,504 1518,505 1471,1099" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+        <g id="shape_09">
+          <rect id="line_18" x="1533" y="1034" width="35" height="32" fill="rgb(217, 213, 90)"/>
+          <rect id="line_19" x="1573" y="1034" width="112" height="32" fill="rgb(190, 29, 27)"/>
+          <rect id="line_20" x="1688" y="1034" width="5" height="32" fill="rgb(217, 213, 90)"/>
+          <rect id="line_21" x="1695" y="1034" width="6" height="32" fill="rgb(190, 29, 27)"/>
+          <rect id="line_22" x="1703" y="1034" width="110" height="33" fill="rgb(130, 78, 121)"/>
+          <rect id="line_23" x="1532" y="1070" width="102" height="31" fill="rgb(120, 40, 24)"/>
+          <rect id="line_24" x="1641" y="1071" width="120" height="30" fill="rgb(120, 40, 24)"/>
+          <rect id="line_25" x="1770" y="1071" width="43" height="31" fill="rgb(33, 79, 39)"/>
+          <rect id="line_26" x="1530" y="1032" width="285" height="71" fill="none" stroke="rgb(125, 26, 20)" stroke-width="5"/>
 
-        <line id="line_59" x1="1478" y1="848" x2="1491" y2="849" stroke="rgb(0, 0, 0)" stroke-width="3"/>
-        <line id="line_60" x1="1461" y1="772" x2="1481" y2="773" stroke="rgb(0, 0, 0)" stroke-width="3"/>
-        <line id="line_61" x1="1455" y1="573" x2="1486" y2="574" stroke="rgb(0, 0, 0)" stroke-width="3"/>
-        <line id="line_62" x1="1484" y1="647" x2="1507" y2="648" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+          <line id="line_63" x1="1530" y1="1068" x2="1815" y2="1069" stroke="rgb(125, 26, 20)" stroke-width="5"/>
+          <line id="line_64" x1="1570" y1="1034" x2="1570" y2="1066" stroke="rgb(166, 119, 87)" stroke-width="2"/>
+          <line id="line_65" x1="1569" y1="1034" x2="1569" y2="1066" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+          <line id="line_66" x1="1572" y1="1034" x2="1572" y2="1066" stroke="rgb(0, 0, 0)" stroke-width="2"/>
 
-        <rect id="line_18" x="1533" y="1034" width="35" height="32" fill="rgb(217, 213, 90)"/>
-        <rect id="line_19" x="1573" y="1034" width="112" height="32" fill="rgb(190, 29, 27)"/>
-        <rect id="line_20" x="1688" y="1034" width="5" height="32" fill="rgb(217, 213, 90)"/>
-        <rect id="line_21" x="1695" y="1034" width="6" height="32" fill="rgb(190, 29, 27)"/>
-        <rect id="line_22" x="1703" y="1034" width="110" height="33" fill="rgb(130, 78, 121)"/>
-        <rect id="line_23" x="1532" y="1070" width="102" height="31" fill="rgb(120, 40, 24)"/>
-        <rect id="line_24" x="1641" y="1071" width="120" height="30" fill="rgb(120, 40, 24)"/>
-        <rect id="line_25" x="1770" y="1071" width="43" height="31" fill="rgb(33, 79, 39)"/>
-        <rect id="line_26" x="1530" y="1032" width="285" height="71" fill="none" stroke="rgb(125, 26, 20)" stroke-width="5"/>
+          <line id="line_64" x1="1637" y1="1071" x2="1637" y2="1101" stroke="rgb(166, 119, 87)" stroke-width="3"/>
+          <line id="line_65" x1="1635" y1="1071" x2="1635" y2="1101" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+          <line id="line_66" x1="1640" y1="1071" x2="1640" y2="1101" stroke="rgb(0, 0, 0)" stroke-width="2"/>
 
-        <line id="line_63" x1="1530" y1="1068" x2="1815" y2="1069" stroke="rgb(125, 26, 20)" stroke-width="5"/>
-        <line id="line_64" x1="1570" y1="1034" x2="1570" y2="1066" stroke="rgb(166, 119, 87)" stroke-width="2"/>
-        <line id="line_65" x1="1569" y1="1034" x2="1569" y2="1066" stroke="rgb(0, 0, 0)" stroke-width="2"/>
-        <line id="line_66" x1="1572" y1="1034" x2="1572" y2="1066" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+          <line id="line_67" x1="1686" y1="1034" x2="1686" y2="1066" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+          <line id="line_68" x1="1694" y1="1034" x2="1694" y2="1066" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+          <line id="line_69" x1="1702" y1="1034" x2="1702" y2="1066" stroke="rgb(0, 0, 0)" stroke-width="3"/>
 
-        <line id="line_64" x1="1637" y1="1071" x2="1637" y2="1101" stroke="rgb(166, 119, 87)" stroke-width="3"/>
-        <line id="line_65" x1="1635" y1="1071" x2="1635" y2="1101" stroke="rgb(0, 0, 0)" stroke-width="2"/>
-        <line id="line_66" x1="1640" y1="1071" x2="1640" y2="1101" stroke="rgb(0, 0, 0)" stroke-width="2"/>
-
-        <line id="line_67" x1="1686" y1="1034" x2="1686" y2="1066" stroke="rgb(0, 0, 0)" stroke-width="3"/>
-        <line id="line_68" x1="1694" y1="1034" x2="1694" y2="1066" stroke="rgb(0, 0, 0)" stroke-width="3"/>
-        <line id="line_69" x1="1702" y1="1034" x2="1702" y2="1066" stroke="rgb(0, 0, 0)" stroke-width="3"/>
-
-        <line id="line_70" x1="1763" y1="1071" x2="1763" y2="1101" stroke="rgb(166, 119, 87)" stroke-width="2"/>
-        <line id="line_71" x1="1767" y1="1071" x2="1767" y2="1101" stroke="rgb(166, 119, 87)" stroke-width="2"/>
-        <line id="line_72" x1="1761" y1="1071" x2="1761" y2="1101" stroke="rgb(0, 0, 0)" stroke-width="2"/>
-        <line id="line_73" x1="1765" y1="1071" x2="1765" y2="1101" stroke="rgb(0, 0, 0)" stroke-width="2"/>
-        <line id="line_74" x1="1769" y1="1071" x2="1769" y2="1101" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+          <line id="line_70" x1="1763" y1="1071" x2="1763" y2="1101" stroke="rgb(166, 119, 87)" stroke-width="2"/>
+          <line id="line_71" x1="1767" y1="1071" x2="1767" y2="1101" stroke="rgb(166, 119, 87)" stroke-width="2"/>
+          <line id="line_72" x1="1761" y1="1071" x2="1761" y2="1101" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+          <line id="line_73" x1="1765" y1="1071" x2="1765" y2="1101" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+          <line id="line_74" x1="1769" y1="1071" x2="1769" y2="1101" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+        </g>
 
         <line id="line_75" x1="1561" y1="922" x2="1637" y2="924" stroke="rgb(111, 28, 19)" stroke-width="6"/>
         <line id="line_76" x1="1562" y1="894" x2="1637" y2="896" stroke="rgb(111, 28, 19)" stroke-width="6"/>
@@ -277,37 +301,43 @@
 
         <path id="path_18" d="M 1562,576 A 30 26 0 1 1 1780,578 Z" fill="rgb(185, 164, 52)" stroke="rgb(136, 53, 28)" stroke-width="3"/>
 
-        <rect id="line_27" x="1924" y="1046" width="31" height="137" fill="rgb(168, 55, 23)"/>
-        <rect id="line_28" x="1924" y="1006" width="32" height="38" fill="rgb(15, 39, 71)"/>
-        <rect id="line_29" x="1924" y="990" width="32" height="14" fill="rgb(0, 76, 54)"/>
+        <g id="shape_10">
+          <rect id="line_27" x="1924" y="1046" width="31" height="137" fill="rgb(168, 55, 23)"/>
+          <rect id="line_28" x="1924" y="1006" width="32" height="38" fill="rgb(15, 39, 71)"/>
+          <rect id="line_29" x="1924" y="990" width="32" height="14" fill="rgb(0, 76, 54)"/>
 
-        <line id="line_80" x1="1921" y1="988" x2="1960" y2="988" stroke="rgb(140, 96, 68)" stroke-width="5"/>
-        <line id="line_81" x1="1922" y1="1005" x2="1959" y2="1005" stroke="rgb(0, 0, 0)" stroke-width="2"/>
-        <line id="line_82" x1="1922" y1="1045" x2="1958" y2="1045" stroke="rgb(0, 0, 0)" stroke-width="2"/>
-        <line id="line_83" x1="1923" y1="985" x2="1922" y2="1184" stroke="url(#gradient)" stroke-width="5"/>
-        <line id="line_84" x1="1958" y1="985" x2="1957" y2="1184" stroke="url(#gradient)" stroke-width="5"/>
+          <line id="line_80" x1="1921" y1="988" x2="1960" y2="988" stroke="rgb(140, 96, 68)" stroke-width="5"/>
+          <line id="line_81" x1="1922" y1="1005" x2="1959" y2="1005" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+          <line id="line_82" x1="1922" y1="1045" x2="1958" y2="1045" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+          <line id="line_83" x1="1923" y1="985" x2="1922" y2="1184" stroke="url(#gradient)" stroke-width="5"/>
+          <line id="line_84" x1="1958" y1="985" x2="1957" y2="1184" stroke="url(#gradient)" stroke-width="5"/>
+        </g>
 
         <circle id="circle_17" r="8" cx="1882" cy="1020" fill="rgb(195, 37, 31)" stroke="rgb(0 0 0)" stroke-width="2"></circle>
         <circle id="circle_18" r="8" cx="1886" cy="968" fill="rgb(16, 30, 65)" stroke="rgb(0 0 0)" stroke-width="2"></circle>
         <circle id="circle_19" r="8" cx="1938" cy="965" fill="rgb(141, 101, 71)" stroke="rgb(0 0 0)" stroke-width="2"></circle>
 
-        <path id="path_19" d="M 1913,845 L 1944,845 1932,950 1904,948 Z" fill="rgb(0, 112, 92)" stroke="rgb(137, 130, 87)" stroke-width="3"/>
-        <path id="path_20" d="M 1870,725 Q 1944,755 1944,843 L 1913,843 Q 1908,783 1854,763 Z" fill="rgb(162, 105, 23)" stroke="url(#gradient2)" stroke-width="3"/>
-        <path id="path_21" d="M 1828,716 Q 1852,716 1870,725 L 1854,763 Q 1841,757 1826,756 Z" fill="rgb(2, 41, 70)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
-        <path id="path_22" d="M 1743,743 Q 1780,713 1828,716 L 1826,756 Q 1794,755 1771,770 Z" fill="rgb(160, 41, 57)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+        <g id="shape_11">
+          <path id="path_19" d="M 1913,845 L 1944,845 1932,950 1904,948 Z" fill="rgb(0, 112, 92)" stroke="rgb(137, 130, 87)" stroke-width="3"/>
+          <path id="path_20" d="M 1870,725 Q 1944,755 1944,843 L 1913,843 Q 1908,783 1854,763 Z" fill="rgb(162, 105, 23)" stroke="url(#gradient2)" stroke-width="3"/>
+          <path id="path_21" d="M 1828,716 Q 1852,716 1870,725 L 1854,763 Q 1841,757 1826,756 Z" fill="rgb(2, 41, 70)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+          <path id="path_22" d="M 1743,743 Q 1780,713 1828,716 L 1826,756 Q 1794,755 1771,770 Z" fill="rgb(160, 41, 57)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
         
-        <path id="path_23" d="M 1727,761 Q 1734,750 1743,743 L 1771,770 Q 1763,775 1754,784" fill="rgb(146, 107, 61)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
-        <line id="line_85" x1="1742" y1="745" x2="1755" y2="758" stroke="rgb(84, 26, 13)" stroke-width="2"/>
-        <line id="line_86" x1="1734" y1="753" x2="1747" y2="765" stroke="rgb(84, 26, 13)" stroke-width="2"/>
-        <line id="line_87" x1="1729" y1="761" x2="1739" y2="770" stroke="rgb(84, 26, 13)" stroke-width="2"/>
+          <path id="path_23" d="M 1727,761 Q 1734,750 1743,743 L 1771,770 Q 1763,775 1754,784" fill="rgb(146, 107, 61)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+          <line id="line_85" x1="1742" y1="745" x2="1755" y2="758" stroke="rgb(84, 26, 13)" stroke-width="2"/>
+          <line id="line_86" x1="1734" y1="753" x2="1747" y2="765" stroke="rgb(84, 26, 13)" stroke-width="2"/>
+          <line id="line_87" x1="1729" y1="761" x2="1739" y2="770" stroke="rgb(84, 26, 13)" stroke-width="2"/>
 
-        <path id="path_24" d="M 1726,762 1753,785 Q 1729,811 1729,851 L 1702,841 Q 1702,794 1726,762 Z" fill="rgb(175, 156, 54)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
-        <path id="path_25" d="M 1702,841 L 1729,851 1702,846 Z" fill="rgb(79, 30, 24)" stroke="rgb(0, 0, 0)" stroke-width="2"/>
-        <path id="path_26" d="M 1702,846 1729,852 1729,859 1702,857 Z" fill="rgb(15, 34, 58)" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+          <path id="path_24" d="M 1726,762 1753,785 Q 1729,811 1729,851 L 1702,841 Q 1702,794 1726,762 Z" fill="rgb(175, 156, 54)" stroke="rgb(0, 0, 0)" stroke-width="3"/>
+          <path id="path_25" d="M 1702,841 L 1729,851 1702,846 Z" fill="rgb(79, 30, 24)" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+          <path id="path_26" d="M 1702,846 1729,852 1729,859 1702,857 Z" fill="rgb(15, 34, 58)" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+        </g>
 
-        <rect id="line_30" x="186" y="1180" width="1790" height="10" fill="rgb(147, 49, 49)" stroke="rgb(0, 0, 0)" stroke-width="2" transform="rotate(0.2)" transform-origin="center"/>
-        <line id="line_88" x1="185" y1="1161" x2="185" y2="1205" stroke="rgb(0, 0, 0)" stroke-width="2"/>
-        <line id="line_89" x1="1975" y1="1163" x2="1975" y2="1206" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+        <g id="shape_12">
+          <rect id="line_30" x="186" y="1180" width="1790" height="10" fill="rgb(147, 49, 49)" stroke="rgb(0, 0, 0)" stroke-width="2" transform="rotate(0.2)" transform-origin="center"/>
+          <line id="line_88" x1="185" y1="1161" x2="185" y2="1205" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+          <line id="line_89" x1="1975" y1="1163" x2="1975" y2="1206" stroke="rgb(0, 0, 0)" stroke-width="2"/>
+        </g>
       </g>
     </svg>
 </body>
