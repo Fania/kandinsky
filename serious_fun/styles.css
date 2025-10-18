@@ -16,6 +16,7 @@ svg {
   position: absolute;
   top: 0; bottom: 0; left: 0; right: 0;
   opacity: 1;
+  background: rgb(206, 201, 151);
 }
 
 svg text {
@@ -23,5 +24,9 @@ svg text {
 }
 
 svg .coordinates.hide {
+  display: none;
+}
+
+img {
   display: none;
 }
