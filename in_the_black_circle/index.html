@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kandinsky</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="coords.js"></script>
+  <script type="module" src="clickListener.js"></script>
+  <!-- <script type="module" src="animations.js"></script> -->
+</head>
+<body>
+  
+  <img src="imgs/in-the-black-circle-1923.jpg" alt="">
+  <!-- 744 × 752 -->
+
+  <svg id="black_svg" viewBox="0 0 744 752" width="744" height="752" preserveAspectRatio="xMidYMid meet" overflow="hidden">
+    <!-- <svg id="marc" viewBox="0 0 1500 1062" width="1280" height="876"> -->
+      <defs id="black_gradients"> <!-- gradients -->
+        <radialGradient id="circle_fade">
+          <stop offset="40%" stop-color="rgb(20 27 63)"/>
+          <stop offset="80%" stop-color="rgb(115 56 103)"/>
+          <stop offset="100%" stop-color="rgb(124 68 100)"/>
+        </radialGradient>
+
+        <linearGradient id="linear_01" gradientTransform="rotate(0)">
+          <stop offset="0%" stop-color="rgb(40, 42, 41)"/>
+          <stop offset="100%" stop-color="rgb(0, 0, 0)"/>
+        </linearGradient>
+      </defs>
+
+      <g id="black_colour_blocks">
+        
+        <!-- <circle id="circle_01" r="352" cx="372" cy="375" fill="url(#linear_01)"></circle> -->
+
+        <!-- 571,658 -->
+        <path id="path_01" d="M 571,658 C 470,730 300,710 248,666 
+        Q 231,660 219,657 T 210,645 T 172,629 Q 164,621 162,604
+        Q 140,600 133,576 Q 52,500 67,445
+        Q 55,435 75,420 q 8,-8 -10,-17 q 9,-12 7,-9 q -16,-10 1,-12 t 0,-10 t 3,-5
+        Q 113,367 106,331 q -40,-50 -4,-75
+        
+        Z" stroke="rgb(157, 53, 31)" stroke-width="2" fill="none"/>
+
+      </g>
+    </svg>
+</body>
+</html>

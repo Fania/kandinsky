@@ -34,3 +34,34 @@ svg .coordinates.hide {
 img {
   display: none;
 }
+
+
+/* @keyframes duration | easing-function | delay |
+iteration-count | direction | fill-mode | play-state | name */
+[id^='line_'].horizontal {
+  animation: 3s infinite running slideHorizontal;
+}
+[id^='line_'].vertical {
+  animation: 3s infinite alternate slideVertical;
+}
+
+@keyframes slideHorizontal {
+  from {
+    /* transform: rotate(0deg); */
+    transform: translateX(-100%);
+  }
+  to {
+    /* transform: rotate(-360deg); */
+    transform: translateX(100%);
+  }
+}
+@keyframes slideVertical {
+  from {
+    /* transform: rotate(0deg); */
+    transform: translateY(-100%);
+  }
+  to {
+    /* transform: rotate(-360deg); */
+    transform: translateY(100%);
+  }
+}
