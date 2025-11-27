@@ -27,14 +27,37 @@
           <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
         </filter>
 
-        <pattern id="pattern_01" x="0" y="0" width="60" height="60" viewBox ='0 0 100 100' patternUnits="userSpaceOnUse">
+        <filter id="spots">
+          <feTurbulence baseFrequency=".06" numOctaves="1" result="turbulence"/>
+        <feColorMatrix type="matrix" in="turbulence" result="colormatrix"
+          values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 30 -4"/>
+          <feFlood flood-color="rgb(225, 219, 207)" result="flood"/>
+          <feComposite in="flood" in2="colormatrix" operator="in" result="composite1"/>
+        </filter>
+        
+        <clipPath id="clip">
+          <path d="M 571,658 C 470,730 300,710 248,666 Q 231,660 219,657 T 210,645 T 172,629 Q 164,621 162,604 Q 140,600 133,576 Q 52,500 67,445 Q 55,435 75,420 q 8,-8 -10,-17 q 9,-12 7,-9 q -16,-10 1,-12 t 0,-10 t 3,-5 Q 113,367 106,331 q -40,-50 -4,-75 q 7,-5 -2,-18 q 4,0 4,-4 q 10,9 8,-3 q 10,2 5,10 l 15,16 -2,-17 6,-1 35,35 40,-25 q 5,2 4,10 t 4,7 c 38,-4 25,30 -18,42 l 0,6 c 17,10 -12,20 -17,0 l 5,-18 -10,-7 q -24,22 -12,-7 l -8,-2 -20,25 -16,-14 -8,14 q 14,10 7,20 l -10,50 10,2 2,10 q 7,7 4,10 q 20,2 4,8 q 4,20 -14,50 t -20,50 q -5,20 40,65 l 35,4 2,14 12,1 q 5,15 18,17 q 60,60 102,20 q 30,-34 70,-22 q 30,0 80,-22 Q 534,578 571,658"/>
+        </clipPath>
+        
+        <mask id="fade">
+          <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="100%">
+            <stop offset=".7" style="stop-color: black"/>
+            <stop offset="1" style="stop-color: white"/>
+          </linearGradient>
+          <rect fill="url(#gradient)" width="100%" height="100%" />
+        </mask>
+
+        <!-- <pattern id="pattern_01" x="0" y="0" width="60" height="60" viewBox ='0 0 100 100' patternUnits="userSpaceOnUse">
           <circle fill="rgb(225, 219, 207)" cx="70" cy="70" r="25"></circle>
           <circle fill="rgb(225, 219, 207)" cx="30" cy="30" r="25"></circle>
         </pattern>
         <pattern id="l2p1" width="100%" height="100%">
            <rect width="100%" height="100%" fill="url(#linear_02)"/>
            <rect width="100%" height="100%" fill="url(#pattern_01)"/>
-        </pattern>
+        </pattern> -->
 
         <linearGradient id="linear_01" gradientTransform="rotate(0)">
           <stop offset="0%" stop-color="rgb(40, 42, 41)"/>
@@ -59,7 +82,8 @@
 
         <g>
           <path id="path_01a" d="M 65,442 Q 55,390 65,383 Q 50,360 112,370 Q 190,390 119,473 l -16,62 Z" stroke="none" stroke-width="2" fill="url(#linear_03)" filter="url(#blur)"/>
-          <path id="path_01" d="M 571,658 C 470,730 300,710 248,666 Q 231,660 219,657 T 210,645 T 172,629 Q 164,621 162,604 Q 140,600 133,576 Q 52,500 67,445 Q 55,435 75,420 q 8,-8 -10,-17 q 9,-12 7,-9 q -16,-10 1,-12 t 0,-10 t 3,-5 Q 113,367 106,331 q -40,-50 -4,-75 q 7,-5 -2,-18 q 4,0 4,-4 q 10,9 8,-3 q 10,2 5,10 l 15,16 -2,-17 6,-1 35,35 40,-25 q 5,2 4,10 t 4,7 c 38,-4 25,30 -18,42 l 0,6 c 17,10 -12,20 -17,0 l 5,-18 -10,-7 q -24,22 -12,-7 l -8,-2 -20,25 -16,-14 -8,14 q 14,10 7,20 l -10,50 10,2 2,10 q 7,7 4,10 q 20,2 4,8 q 4,20 -14,50 t -20,50 q -5,20 40,65 l 35,4 2,14 12,1 q 5,15 18,17 q 60,60 102,20 q 30,-34 70,-22 q 30,0 80,-22 Q 534,578 571,658" stroke="none" stroke-width="2" fill="url(#l2p1)" filter="url(#blur)"/>
+          <rect width="100%" height="100%" fill="url(#linear_02)" clip-path="url(#clip)"/>
+          <rect width="100%" height="100%" filter="url(#spots)" clip-path="url(#clip)" mask="url(#fade)"/>
         </g>
         
         <path id="path_02" d="M 101,269 Q 98,280 113,292 Z" stroke="none" stroke-width="2" fill="rgb(55, 42, 30)"/>
