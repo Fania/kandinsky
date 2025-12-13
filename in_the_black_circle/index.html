@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="coords.js"></script>
   <script type="module" src="clickListener.js"></script>
+  <!-- <script type="module" src="tools.js"></script> -->
   <!-- <script type="module" src="animations.js"></script> -->
 </head>
 <body>
@@ -71,7 +72,18 @@
           <stop offset="0%" stop-color="rgb(225, 219, 207)"/>
           <stop offset="100%" stop-color="rgb(185, 114, 58)"/>
         </linearGradient>
-
+        <linearGradient id="linear_04" gradientTransform="rotate(90)">
+          <stop offset="0%" stop-color="rgb(76, 51, 37)"/>
+          <stop offset="30%" stop-color="rgb(150, 75, 40)"/>
+          <stop offset="100%" stop-color="rgb(220, 215, 200)"/>
+        </linearGradient>
+        <linearGradient id="linear_05" gradientTransform="rotate(110)">
+          <stop offset="10%" stop-color="rgb(227, 151, 53)"/>
+          <stop offset="20%" stop-color="rgb(221, 167, 98)"/>
+          <stop offset="30%" stop-color="rgb(221, 167, 98)"/>
+          <stop offset="70%" stop-color="rgb(177, 50, 5)"/>
+          <stop offset="100%" stop-color="rgb(101, 51, 27)"/>
+        </linearGradient>
 
 
       </defs>
@@ -129,6 +141,43 @@
         <line x1="335" y1="193" x2="398" y2="126" stroke="rgb(52,74,82)" stroke-width="10"></line>
         <line x1="318" y1="209" x2="335" y2="193" stroke="white" stroke-width="8"></line>
         
+        <!-- <ellipse id="" x="170" c="225" width="20" height="20" fill="rgb(47, 57, 63)"></ellipse> -->
+        <circle id="" r="8" cx="185" cy="149" fill="rgb(64, 71, 94)"></circle> 
+        
+        <ellipse rx="16" ry="24" cx="171" cy="226" fill="rgb(222,142,56)"  transform-origin="171 226" transform="rotate(-40)"/>
+        
+        <!-- 85.5 113 -->
+
+        <path d="M 633,601 L 583,471 585,416 657,385 660,352 709,329 703,299 688,293 702,284 695,249 674,247 669,231 637,230 630,195 604,193 605,164 524,173 551,114  C 720,170 790,420 633,601" fill="url(#linear_04)" filter="url(#blur)"/>
+        
+        
+        <circle id="" r="63" cx="648" cy="457" fill="rgb(0, 0, 15)" filter="url(#blur)"></circle> 
+        <circle id="" r="13" cx="648" cy="455" fill="rgb(226, 216, 205)"></circle> 
+
+        <path d="M 541,122 L 476,199 541,248 628,208 627,199 599,195 602,169 516,178 Z" fill="url(#linear_05)"/>
+        <!-- <path d="M 610,216 L 630,328 653,313 655,235 635,236 628,208 Z" fill="rgb(182, 1, 8)"/> -->
+        <!-- <path d="M 586,359 L 581,413 652,380 652,314 Z" fill="rgb(220, 142, 70)"/> -->
+        <!-- <path d="M 655,235 L 653,347 703,323 700,302 681,296 697,281 692,252 671,252 666,235 Z" fill="rgb(203, 179, 147)"/> -->
+        
+        <path d="M 575,379 L 575,382 Q 634,334 694,313 L 693,307 Q 634,325 575,379 Z" fill="rgb(229, 221, 216)"/>
+
+        <path d="M 573,362 L 573,365 Q 580,358 587,351 L 587,348 Q 627,300 587,346 Z" fill="rgb(229, 221, 216)"/>
+        <path d="M 587,346 L 587,351 Q 630,305 681,281 L 679,272 Q 627,300 587,346 Z" fill="rgb(65, 91, 113)"/>
+        <path d="M 628,306 L 628,315 Q 652,295 681,281 L 679,272 Q 652,286 628,306 Z" fill="rgb(236, 159, 61)"/>
+        
+        <path d="M 564,348 L 567,348 Q 610,280 656,251 L 652,245 Q 600,275 564,348 Z" fill="rgb(229, 221, 216)"/>
+        <path d="M 574,329 L 579,330 Q 600,299 623,277 L 622,267 Q 600,285 574,329 Z" fill="rgb(222, 136, 50)"/>
+
+
+
+
+        
+
+
+
+
+
+
 
 
       </g>
