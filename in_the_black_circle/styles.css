@@ -36,3 +36,12 @@ img {
   /* display: none; */
 }
 
+.conical_01 {
+  width: 370px; height: 515px;
+  background: 
+    /* radial-gradient(transparent 0%, #e6e1db 60%), */
+    linear-gradient(200deg, transparent 50%, #af6361 65%, rgb(192,182,158) 75%), 
+    conic-gradient(from 320deg at 40% 40%, 
+                 #e6e1db 10%, #956569 40%, #8b5f77 60%,
+                 #807598, #728ba6, #759ea4 80%);
+}

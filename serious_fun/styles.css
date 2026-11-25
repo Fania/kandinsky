@@ -38,12 +38,12 @@ img {
 
 /* @keyframes duration | easing-function | delay |
 iteration-count | direction | fill-mode | play-state | name */
-[id^='line_'].horizontal {
+/* [id^='line_'].horizontal {
   animation: 3s infinite running slideHorizontal;
 }
 [id^='line_'].vertical {
   animation: 3s infinite alternate slideVertical;
-}
+} */
 
 @keyframes slideHorizontal {
   from {
@@ -64,4 +64,46 @@ iteration-count | direction | fill-mode | play-state | name */
     /* transform: rotate(-360deg); */
     transform: translateY(100%);
   }
+}
+
+
+
+
+
+
+
+:root {
+  view-transition-name: root;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(root) {
+  animation-duration: 0.5s;
+}
+
+@keyframes move-top-out {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes move-top-in {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+::view-transition-old(root) {
+  animation: 0.4s ease-in both move-top-in;
+}
+::view-transition-new(root) {
+  animation: 0.4s ease-in both move-top-out;
 }

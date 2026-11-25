@@ -59,9 +59,17 @@ a img {
   pointer-events: none;
 }
 
+a#serious_fun img {
+  object-position: 25% 50%;
+}
+
+
 
 #circles_in_a_circle {
   view-transition-name: circles_in_a_circle;
+}
+#serious_fun {
+  view-transition-name: serious_fun;
 }
 #improvisation_29 {
   view-transition-name: improvisation_29;
@@ -128,6 +136,22 @@ a img {
       transform: translateY(100%);
   }
 }
+@keyframes move-top-out {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes move-top-in {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
 
 ::view-transition-old(circles_in_a_circle) {
     animation: 0.4s ease-in both move-left-out;
@@ -140,6 +164,12 @@ a img {
 }
 ::view-transition-new(improvisation_29) {
     animation: 0.4s ease-in both move-bottom-in;
+}
+::view-transition-old(serious_fun) {
+    animation: 0.4s ease-in both move-top-out;
+}
+::view-transition-new(serious_fun) {
+    animation: 0.4s ease-in both move-top-in;
 }
 ::view-transition-old(several_circles) {
     animation: 0.4s ease-in both move-right-out;
@@ -158,6 +188,7 @@ a img {
 
   <nav>
     <a id="circles_in_a_circle" href="circles_in_a_circle"><img src="circles_in_a_circle/imgs/screenshot.jpeg" alt="Circles in a circle"></a>
+    <a id="serious_fun" href="serious_fun"><img src="serious_fun/screenshot.png" alt="Serious Fun"></a>
     <a id="improvisation_29" href="improvisation_29"><img src="improvisation_29/kandinsky.jpeg" alt="Boat"></a>
     <a id="several_circles" href="several_circles"><img src="several_circles/original.jpeg" alt="Several Circles"></a>
   </nav>
