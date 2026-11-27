@@ -2,27 +2,27 @@ const blacky = document.getElementById('black_svg');
 const [...blocks] = document.getElementById('black_colour_blocks').children;
 const [...gradients] = document.getElementById('black_gradients').children;
 
-console.log(`There are a total of ${blocks.length} colour blocks.`);
-console.log(`And there are ${gradients.length} unique gradients.`);
 
-
-
-
+let coords_list = [];
 
 
 blacky.addEventListener("click", (ev) => {
-  // console.log(ev);
-  // const elem = document.elementFromPoint(ev.offsetX, ev.offsetY);
-  // console.log(elem);
   console.log(`(${ev.offsetX}, ${ev.offsetY})`);
+  coords_list.push(`${ev.offsetX} ${ev.offsetY}`);
 });
-
 
 blocks.forEach(block => {
   block.addEventListener("dblclick", (ev) => {
     console.log(block.id);
-    // console.log(ev);
-    // const elem = document.elementFromPoint(ev.offsetX, ev.offsetY);
-    // console.log(elem.id);
   });
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "x") {
+    console.log(coords_list);
+    const [head, ...rest] = coords_list; 
+    const newpath = `<path d="M ${head} L ${rest.join(' ')} Z" fill="pink"/>`;
+    navigator.clipboard.writeText(newpath);
+    coords_list = [];
+  }
 });
